@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IResetable
     public AudioSource PlayerAudioSource;
     public AudioClip LaunchAudioClip;
     public AudioClip LandAudioClip;
+    public AudioSource DrillingAudioSource;
 
     private TriggerCollisionType _currentTriggerCollisionType;
 
@@ -56,7 +57,12 @@ public class PlayerController : MonoBehaviour, IResetable
 		{
             PlayerAudioSource.PlayOneShot(LandAudioClip);
             MammothViewController.DockToResourcePlanet();
-		}
+            DrillingAudioSource.Play();
+        }
+        else
+        {
+            DrillingAudioSource.Stop();
+        }
 	}
 
 	private void OnTriggerCollisionExit(TriggerCollisionType type)
