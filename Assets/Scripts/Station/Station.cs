@@ -15,13 +15,20 @@ public class Station : MonoBehaviour, IResetable
     private void OnScoreChanged(int score)
     {
         Debug.Log("score: " + score);
+        int totalSegments = 0;
         for (var i = 0; i < requiredSegmentScores.Length; i++)
         {
             var segmentScore = requiredSegmentScores[i];
             if (score >= segmentScore)
             {
                 segments[i].ShowSegment();
+                totalSegments++;
             }
+        }
+
+        if (Game.Instance.GameSignals.OnHomeSegmentCountChanged != null)
+        {
+            Game.Instance.GameSignals.OnHomeSegmentCountChanged(totalSegments);
         }
     }
 

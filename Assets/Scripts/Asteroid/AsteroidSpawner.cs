@@ -61,6 +61,7 @@ public class AsteroidSpawner : MonoBehaviour
     void Start()
     {
         currentLifeCount = 0;
+        Game.Instance.GameSignals.OnHomeSegmentCountChanged += OnHomeSegmentsChanged;
     }
 
     // Update is called once per frame
@@ -145,6 +146,11 @@ public class AsteroidSpawner : MonoBehaviour
         movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
         movement.AsteroidDespawner = AsteroidDespawner;
         movement.AsteroidSpawnerInternal = this;
+    }
+    
+    private void OnHomeSegmentsChanged(int value)
+    {
+        Debug.Log("totalSegments: " + value);
     }
 }
 

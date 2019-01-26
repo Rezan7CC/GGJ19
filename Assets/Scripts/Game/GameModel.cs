@@ -11,7 +11,7 @@ public class GameModel
 		this.score = score;
 		if (OnScoreChange != null)
 		{
-			OnScoreChange.Invoke(this.score);
+			OnScoreChange(this.score);
 		}
 	}
 
@@ -20,7 +20,7 @@ public class GameModel
 		this.score += score;
 		if (OnScoreChange != null)
 		{
-			OnScoreChange.Invoke(this.score);
+			OnScoreChange(this.score);
 		}
 	}
 }
