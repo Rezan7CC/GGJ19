@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class AsteroidMovement : MonoBehaviour, IResetable
 {
+    public float MinRotationSpeed = 0.0f;
+    public float MaxRotationSpeed = 5.0f;
     public float OffsetBufferPixel = 10.0f;
 
     [HideInInspector]
@@ -38,6 +40,8 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Rigidbody>().AddTorque(Random.Range(MinRotationSpeed, MaxRotationSpeed),
+           Random.Range(MinRotationSpeed, MaxRotationSpeed), Random.Range(MinRotationSpeed, MaxRotationSpeed), ForceMode.VelocityChange);
     }
 
     public void Init()

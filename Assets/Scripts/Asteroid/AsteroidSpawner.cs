@@ -37,6 +37,9 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public AsteroidConfig[] asteroidStage = new AsteroidConfig[7];
 
+    public float MinScale = 0.5f;
+    public float MaxScale = 2.0f;
+
     private float spawnTimer = 0.0f;
 
     public GameObject AsteroidPrefab;
@@ -126,6 +129,9 @@ public class AsteroidSpawner : MonoBehaviour
         float spawnDist = asteroidStage[currentStage].SpawnDistance;
         asteroidInstance.transform.position = spawnDir *
             Mathf.LerpUnclamped(spawnDist, spawnDist * movement.Speed, asteroidStage[currentStage].DistanceSpeedFactor);
+
+        float scale = Random.Range(MinScale, MaxScale);
+        asteroidInstance.transform.localScale = new Vector3(scale, scale, scale);
 
         float circleResult = Random.Range(0.0f, 1.0f);
 
