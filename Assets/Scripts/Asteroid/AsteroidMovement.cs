@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -101,7 +102,15 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         if (other.gameObject.tag.Equals(Tags.Segment))
         {
             DestroyAsteroid();
-
+            if (Camera.main != null)
+            {
+                DOTween.Sequence()
+                        .Insert(0, Camera.main.transform.DOShakePosition(0.33f, 0.05f))
+                        .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, 0.33f))
+                    
+                ;
+            }
+            
             if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
             {
                 Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
