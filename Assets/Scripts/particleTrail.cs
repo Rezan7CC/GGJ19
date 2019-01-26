@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class particleTrail : MonoBehaviour
 {
-
+    public int particleAmount;
     public ParticleSystem thruster;
 
     // Update is called once per frame
@@ -12,7 +12,7 @@ public class particleTrail : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            thruster.Emit(1); //Emit some particle
+            thruster.Emit(particleAmount); //Emit some particle
         }
     }
 }
