@@ -18,16 +18,9 @@ public class GameController : MonoBehaviour, IResetable
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Game.Instance.GameModel.IncreaseScore(20);
-        }
-    }
-
     public void Reset()
     {
         Game.Instance.GameModel.SetScore(0);
+        Game.Instance.GameModel.SetResourceAmount(0);
     }
 }
