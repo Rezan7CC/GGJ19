@@ -81,18 +81,21 @@ public class PlayerController : MonoBehaviour, IResetable
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		HandleControlMode();
+	}
+
+	private void FixedUpdate()
+	{
 		_controlsMapping[Game.Instance.GameModel.GetControlMode()]();
 	}
 
 	private void HandleControlMode()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && _currentTriggerCollisionType != TriggerCollisionType.None)
 		{
-			if (_currentTriggerCollisionType != TriggerCollisionType.None &&
-			    Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
+			if (Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
 			{
 				var controlMode = _collisionTypeMapping[_currentTriggerCollisionType];
 				Game.Instance.GameModel.SetControlMode(controlMode);
