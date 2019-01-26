@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8357cd99930ae45b8624437cc5beda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleAmount: 20
+  particleAmount: 15
   thruster: {fileID: 8456443826064252218}
 --- !u!1 &1939746874561516202
 GameObject:
@@ -266,12 +266,12 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: -2
+      value: -3.2303743
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: -2
+      value: -3.2303743
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
@@ -281,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
-      value: 0
+      value: 0.11351216
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
@@ -291,12 +291,12 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 0
+      value: -0.39138514
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0
+      value: 0.12529756
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
@@ -336,12 +336,12 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
-      value: 18890
+      value: 12529
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime2
-      value: 65535
+      value: 37972
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime0
-      value: 10409
+      value: 17155
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
@@ -381,7 +381,42 @@ PrefabInstance:
     - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: NoiseModule.strength.scalar
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.8266897
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 3084
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.r
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.g
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.b
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime3
+      value: 37972
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261868, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -0.39138514
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f9bb270e8120b429087677d582978b, type: 3}
