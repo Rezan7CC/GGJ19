@@ -2,34 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class AsteroidConfig
+{
+    AsteroidConfig(float minFrequency, float maxFrequency, int maximumLifeCount, float minSpeed, float maxSpeed, float spawnDistance, 
+        bool topLeftQuadrant, bool topRightQuadrant, bool bottomLeftQuadrant, bool bottomRightQuadrant, 
+        float innerTargetRadius, float outerTargetRadius, float innerTargetChance)
+    {
+        MinFrequency = minFrequency;
+        MaxFrequency = maxFrequency;
+        MaximumLifeCount = maximumLifeCount;
+        MinSpeed = minSpeed;
+        MaxSpeed = maxSpeed;
+        SpawnDistance = spawnDistance;
+        TopLeftQuadrant = topLeftQuadrant;
+        TopRightQuadrant = topRightQuadrant;
+        BottomLeftQuadrant = bottomLeftQuadrant;
+        BottomRightQuadrant = bottomRightQuadrant;
+        InnerTargetRadius = innerTargetRadius;
+        OuterTargetRadius = outerTargetRadius;
+        InnerTargetChance = innerTargetChance;
+    }
+
+    public float MinFrequency;
+    public float MaxFrequency;
+
+    public int MaximumLifeCount;
+
+    public float MinSpeed;
+    public float MaxSpeed;
+
+    public float SpawnDistance;
+
+    public bool TopLeftQuadrant;
+    public bool TopRightQuadrant;
+    public bool BottomLeftQuadrant;
+    public bool BottomRightQuadrant;
+
+    public float InnerTargetRadius;
+    public float OuterTargetRadius;
+
+    public float InnerTargetChance;
+}
+
 public class AsteroidSpawner : MonoBehaviour
 {
-    public float MinFrequency = 2.0f;
-    public float MaxFrequency = 5.0f;
+    public AsteroidConfig[] asteroidStage = new AsteroidConfig[6];
 
-    public int MaximumLifeCount = 5;
-
-    public float MinSpeed = 0.5f;
-    public float MaxSpeed = 2.0f;
+    private float spawnTimer = 0.0f;
 
     public GameObject AsteroidPrefab;
     public BoxCollider AsteroidDespawner;
 
-    public float SpawnDistance = 10.0f;
-
-    public bool TopLeftQuadrant = true;
-    public bool TopRightQuadrant = true;
-    public bool BottomLeftQuadrant = true;
-    public bool BottomRightQuadrant = false;
-
-    public float InnerTargetRadius = 3.0f;
-    public float OuterTargetRadius = 7.0f;
-
-    public float InnerTargetChance = 0.5f;
-
-    private float spawnTimer = 0.0f;
-
     public int currentLifeCount = 0;
+    public int currentStage = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -43,24 +69,25 @@ public class AsteroidSpawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0.0f)
         {
-            spawnTimer = Random.Range(MinFrequency, MaxFrequency);
+            spawnTimer = Random.Range(asteroidStage[currentStage].MinFrequency, asteroidStage[currentStage].MaxFrequency);
             SpawnAsteroid();
         }
     }
 
     void SpawnAsteroid()
     {
-        if (currentLifeCount >= MaximumLifeCount)
+        if (currentLifeCount >= asteroidStage[currentStage].MaximumLifeCount)
             return;
 
-        if (!TopLeftQuadrant && !TopRightQuadrant && !BottomLeftQuadrant && !BottomRightQuadrant)
+        if (!asteroidStage[currentStage].TopLeftQuadrant && !asteroidStage[currentStage].TopRightQuadrant 
+            && !asteroidStage[currentStage].BottomLeftQuadrant && !asteroidStage[currentStage].BottomRightQuadrant)
             return;
 
         GameObject asteroidInstance = Instantiate<GameObject>(AsteroidPrefab);
         ++currentLifeCount;
 
         AsteroidMovement movement = asteroidInstance.GetComponent<AsteroidMovement>();
-        movement.Speed = Random.Range(MinSpeed, MaxSpeed);
+        movement.Speed = Random.Range(asteroidStage[currentStage].MinSpeed, asteroidStage[currentStage].MaxSpeed);
 
         float rotationAngle = 0.0f;
         for(int i = 0; i < 1000; ++i)
@@ -70,28 +97,28 @@ public class AsteroidSpawner : MonoBehaviour
             {
                 case 0:
                 {
-                        if (!TopLeftQuadrant)
+                        if (!asteroidStage[currentStage].TopLeftQuadrant)
                             continue;
                         rotationAngle = Random.Range(0, 90);
                     break;
                 }
                 case 1:
                     {
-                        if (!TopRightQuadrant)
+                        if (!asteroidStage[currentStage].TopRightQuadrant)
                             continue;
                         rotationAngle = Random.Range(240, 360);
                         break;
                     }
                 case 2:
                     {
-                        if (!BottomLeftQuadrant)
+                        if (!asteroidStage[currentStage].BottomLeftQuadrant)
                             continue;
                         rotationAngle = Random.Range(90, 180);
                         break;
                     }
                 case 3:
                     {
-                        if (!BottomRightQuadrant)
+                        if (!asteroidStage[currentStage].BottomRightQuadrant)
                             continue;
                         rotationAngle = Random.Range(180, 240);
                         break;
@@ -101,18 +128,18 @@ public class AsteroidSpawner : MonoBehaviour
 
 
         Vector3 spawnDir = Quaternion.Euler(0, 0, rotationAngle) * new Vector3(0, 1, 0);
-        asteroidInstance.transform.position = spawnDir * SpawnDistance;
+        asteroidInstance.transform.position = spawnDir * asteroidStage[currentStage].SpawnDistance;
 
         float circleResult = Random.Range(0.0f, 1.0f);
 
         Vector3 targetPosition;
-        if(InnerTargetChance >= circleResult)
+        if(asteroidStage[currentStage].InnerTargetChance >= circleResult)
         {
-            targetPosition = Random.insideUnitCircle * InnerTargetRadius;
+            targetPosition = Random.insideUnitCircle * asteroidStage[currentStage].InnerTargetRadius;
         }
         else
         {
-            targetPosition = Random.insideUnitCircle * OuterTargetRadius;
+            targetPosition = Random.insideUnitCircle * asteroidStage[currentStage].OuterTargetRadius;
         }
 
         movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
