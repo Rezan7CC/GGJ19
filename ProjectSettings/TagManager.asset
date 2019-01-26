@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Main
+  - Astroid
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: particles
+    uniqueID: 291648933
+    locked: 0
+  - name: Mammoth
+    uniqueID: 466702899
     locked: 0
