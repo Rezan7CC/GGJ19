@@ -148,22 +148,22 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         if (Mathf.Abs(angleDeg) < 45)
         {
             AstroidWarningIndicator.position = new Vector3(ClampPixelWidth(positionScreenSpace.x), mainCamera.scaledPixelHeight - offset, 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 0);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (Mathf.Abs(angleDeg) > 135)
         {
             AstroidWarningIndicator.position = new Vector3(ClampPixelWidth(positionScreenSpace.x), offset, 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -180);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -180);
         }
         else if (angleDeg > 0)
         {
             AstroidWarningIndicator.position = new Vector3(mainCamera.scaledPixelWidth - offset, ClampPixelHeight(positionScreenSpace.y), 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -90);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -90);
         }
         else
         {
             AstroidWarningIndicator.position = new Vector3(offset, ClampPixelHeight(positionScreenSpace.y), 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 90);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 90);
         }
     }
 
