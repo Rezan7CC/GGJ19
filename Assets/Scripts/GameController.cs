@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject.FindWithTag(Tags.ServiceLocator).GetComponent<ServiceLocator>().GameModel.IncreaseScore(20);
+            Game.Instance.GameModel.IncreaseScore(20);
         }
     }
 }

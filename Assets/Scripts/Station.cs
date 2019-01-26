@@ -8,8 +8,9 @@ public class Station : MonoBehaviour, IResetable
 
     private void Start()
     {
-        GameObject.FindWithTag(Tags.ServiceLocator).GetComponent<ServiceLocator>().GameModel.OnScoreChange += OnScoreChanged;
-        requiredSegmentScores = GameObject.FindWithTag(Tags.ServiceLocator).GetComponent<ServiceLocator>().GameSettings.segmentScores;
+        
+        Game.Instance.GameModel.OnScoreChange += OnScoreChanged;
+        requiredSegmentScores = Game.Instance.ServiceLocator.GameSettings.segmentScores;
     }
 
     private void OnScoreChanged(int score)

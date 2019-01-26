@@ -1,4 +1,4 @@
 public static class Tags
 {
-	public static string ServiceLocator = "ServiceLocator";
+	public static string Main = "Main";
 }
