@@ -152,7 +152,6 @@ public class AsteroidSpawner : MonoBehaviour
     private void OnHomeSegmentsChanged(int value)
     {
         currentStage = value;
-        Debug.Log("totalSegments: " + value);
     }
 }
 

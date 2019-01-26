@@ -22,6 +22,11 @@ public class shipManeuverController : MonoBehaviour
         Rotate(transform, xAxis);
     }
 
+    public void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     #region Maneuvering API
     private void ClampVelocity()
     {

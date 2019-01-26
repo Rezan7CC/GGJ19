@@ -14,7 +14,6 @@ public class Station : MonoBehaviour, IResetable
 
     private void OnScoreChanged(int score)
     {
-        Debug.Log("score: " + score);
         int totalSegments = 0;
         for (var i = 0; i < requiredSegmentScores.Length; i++)
         {

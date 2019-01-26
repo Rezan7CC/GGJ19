@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class ShipController : MonoBehaviour, IResetable
+public class PlayerController : MonoBehaviour, IResetable
 {
 	public Shield Shield;
 	public shipManeuverController Ship;
@@ -31,7 +31,10 @@ public class ShipController : MonoBehaviour, IResetable
 
 	private void OnControlModeChanged(ControlMode controlmode)
 	{
-		Debug.Log("controlMode: " + controlmode);
+		if (controlmode != ControlMode.ShipMovement)
+		{
+			Ship.StopMovement();
+		}
 	}
 
 	private void OnTriggerCollisionExit(TriggerCollisionType type)
@@ -46,6 +49,7 @@ public class ShipController : MonoBehaviour, IResetable
 
 	public void Reset()
 	{
+		Debug.Log("Set to shipmovement");
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
@@ -59,13 +63,15 @@ public class ShipController : MonoBehaviour, IResetable
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
+			Debug.Log("_currentTriggerCollisionType: " + _currentTriggerCollisionType);
 			if (_currentTriggerCollisionType != TriggerCollisionType.None &&
 			    Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
 			{
-				Game.Instance.GameModel.SetControlMode(_collisionTypeMapping[_currentTriggerCollisionType]);
+				var controlMode = _collisionTypeMapping[_currentTriggerCollisionType];
+				Debug.Log("Will set to control Mode: " + controlMode);
+				Game.Instance.GameModel.SetControlMode(controlMode);
 			}
-
-			if (Game.Instance.GameModel.GetControlMode() != ControlMode.ShipMovement)
+			else if (Game.Instance.GameModel.GetControlMode() != ControlMode.ShipMovement)
 			{
 				Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 			}

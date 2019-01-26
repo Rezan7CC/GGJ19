@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class GameController : MonoBehaviour, IResetable
 
     public void RestartGame()
     {
-        var resetables = FindObjectsOfType<MonoBehaviour>().OfType<IResetable>();
+        IEnumerable<IResetable> resetables = FindObjectsOfType<MonoBehaviour>().OfType<IResetable>();
         foreach (var resetable in resetables) {
             resetable.Reset();
         }
