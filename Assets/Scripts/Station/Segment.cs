@@ -5,9 +5,17 @@ public class Segment : MonoBehaviour
     [SerializeField]
     private GameObject segment;
 
+    private bool _canTakeDamage = false;
+
     private void Start()
     {
         Game.Instance.GameSignals.OnAstroidHitSegment += OnAstroidHit;
+        Game.Instance.GameSignals.OnWin += OnWin;
+    }
+
+    private void OnWin()
+    {
+        _canTakeDamage = true;
     }
 
     public void HideSegment()
@@ -33,7 +41,7 @@ public class Segment : MonoBehaviour
     
     private void OnAstroidHit(GameObject hitSegment)
     {
-        if (hitSegment == segment.gameObject)
+        if (hitSegment == segment.gameObject && !_canTakeDamage)
         {
             Game.Instance.GameModel.ReduceHealth(Game.Instance.GameSettings.astroidDamage);
         }
