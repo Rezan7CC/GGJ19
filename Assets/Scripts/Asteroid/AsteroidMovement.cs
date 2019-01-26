@@ -96,6 +96,16 @@ public class AsteroidMovement : MonoBehaviour
         {
             DestroyAsteroid();
         }
+
+        if (other.gameObject.tag.Equals(Tags.Segment))
+        {
+            DestroyAsteroid();
+
+            if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
+            {
+                Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
+            }
+        }
     }
 
     float ClampPixelHeight(float height)

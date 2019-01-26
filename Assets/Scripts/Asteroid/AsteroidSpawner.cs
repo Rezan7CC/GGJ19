@@ -6,25 +6,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class AsteroidConfig
 {
-    AsteroidConfig(float minFrequency, float maxFrequency, int maximumLifeCount, float minSpeed, float maxSpeed, float spawnDistance, 
-        bool topLeftQuadrant, bool topRightQuadrant, bool bottomLeftQuadrant, bool bottomRightQuadrant, 
-        float innerTargetRadius, float outerTargetRadius, float innerTargetChance)
-    {
-        MinFrequency = minFrequency;
-        MaxFrequency = maxFrequency;
-        MaximumLifeCount = maximumLifeCount;
-        MinSpeed = minSpeed;
-        MaxSpeed = maxSpeed;
-        SpawnDistance = spawnDistance;
-        TopLeftQuadrant = topLeftQuadrant;
-        TopRightQuadrant = topRightQuadrant;
-        BottomLeftQuadrant = bottomLeftQuadrant;
-        BottomRightQuadrant = bottomRightQuadrant;
-        InnerTargetRadius = innerTargetRadius;
-        OuterTargetRadius = outerTargetRadius;
-        InnerTargetChance = innerTargetChance;
-    }
-
     public float MinFrequency;
     public float MaxFrequency;
 
@@ -35,6 +16,8 @@ public class AsteroidConfig
 
     public float SpawnDistance;
 
+    public float DistanceSpeedFactor = 1.0f;
+
     public bool TopLeftQuadrant;
     public bool TopRightQuadrant;
     public bool BottomLeftQuadrant;
@@ -44,6 +27,8 @@ public class AsteroidConfig
     public float OuterTargetRadius;
 
     public float InnerTargetChance;
+
+    public float DeadZone = 25.0f;
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -103,28 +88,28 @@ public class AsteroidSpawner : MonoBehaviour
                 {
                         if (!asteroidStage[currentStage].TopLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(0, 90);
+                        rotationAngle = Random.Range(asteroidStage[currentStage].DeadZone, 90);
                     break;
                 }
                 case 1:
                     {
                         if (!asteroidStage[currentStage].TopRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(240, 360);
+                        rotationAngle = Random.Range(240, 360 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 2:
                     {
                         if (!asteroidStage[currentStage].BottomLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(90, 180);
+                        rotationAngle = Random.Range(90, 180 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 3:
                     {
                         if (!asteroidStage[currentStage].BottomRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(180, 240);
+                        rotationAngle = Random.Range(180 + asteroidStage[currentStage].DeadZone, 240);
                         break;
                     }
             }
@@ -132,7 +117,9 @@ public class AsteroidSpawner : MonoBehaviour
 
 
         Vector3 spawnDir = Quaternion.Euler(0, 0, rotationAngle) * new Vector3(0, 1, 0);
-        asteroidInstance.transform.position = spawnDir * asteroidStage[currentStage].SpawnDistance;
+        float spawnDist = asteroidStage[currentStage].SpawnDistance;
+        asteroidInstance.transform.position = spawnDir *
+            Mathf.LerpUnclamped(spawnDist, spawnDist * movement.Speed, asteroidStage[currentStage].DistanceSpeedFactor);
 
         float circleResult = Random.Range(0.0f, 1.0f);
 
