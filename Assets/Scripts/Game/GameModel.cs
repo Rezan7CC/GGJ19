@@ -14,6 +14,11 @@ public class GameModel
 			OnScoreChange(this._score);
 		}
 	}
+	
+	public int GetScore()
+	{
+		return _score;
+	}
 
 	public void IncreaseScore(int score)
 	{

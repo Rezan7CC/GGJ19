@@ -10,5 +10,7 @@ public class GameSettings : ScriptableObject
 	public int resourceCapacity;
 	public int collectResouceSpeed;
 	
-	
+	[Header("Health")]
+	public int maxHealth;
+	public int astroidDamage;
 }

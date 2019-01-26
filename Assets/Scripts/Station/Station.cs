@@ -9,6 +9,7 @@ public class Station : MonoBehaviour, IResetable
     private void Start()
     {
         Game.Instance.GameModel.OnScoreChange += OnScoreChanged;
+        OnScoreChanged(Game.Instance.GameModel.GetScore());
         requiredSegmentScores = Game.Instance.GameSettings.segmentScores;
     }
 
