@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 
-public class shipManeuverController : MonoBehaviour
+public class shipManeuverController : MonoBehaviour, IResetable
 {
     private Rigidbody rb;
     public float maxVelocity = 5;
@@ -47,4 +48,9 @@ public class shipManeuverController : MonoBehaviour
         t.Rotate(0, 0, -amount);
     }
     #endregion
+
+    public void Reset()
+    {
+        rb.velocity = Vector3.zero;
+    }
 }
