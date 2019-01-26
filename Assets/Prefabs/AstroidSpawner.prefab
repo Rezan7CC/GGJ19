@@ -48,7 +48,7 @@ MonoBehaviour:
     MaxFrequency: 10
     MaximumLifeCount: 1
     MinSpeed: 0.5
-    MaxSpeed: 1.5
+    MaxSpeed: 1.2
     SpawnDistance: 15
     DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
@@ -59,11 +59,11 @@ MonoBehaviour:
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
     DeadZone: 45
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
+  - MinFrequency: 4
+    MaxFrequency: 9
+    MaximumLifeCount: 2
+    MinSpeed: 0.8
+    MaxSpeed: 1.8
     SpawnDistance: 15
     DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
@@ -73,12 +73,12 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
-    DeadZone: 25
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
+    DeadZone: 35
+  - MinFrequency: 5
+    MaxFrequency: 10
+    MaximumLifeCount: 2
+    MinSpeed: 0.5
+    MaxSpeed: 1.5
     SpawnDistance: 15
     DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
-    DeadZone: 25
+    DeadZone: 40
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
