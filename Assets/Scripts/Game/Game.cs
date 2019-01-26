@@ -1,3 +1,4 @@
+using DefaultNamespace.Game;
 using UnityEngine;
 
 public class Game
@@ -37,11 +38,19 @@ public class Game
 	{
 		get { return _gameSettings; }
 	}
+	
+	private GameSignals _gameSignals;
+	public GameSignals GameSignals
+	{
+		get { return _gameSignals; }
+	}
 
 	private void Initialize()
 	{
 		_gameModel = new GameModel();
+		_gameSignals = new GameSignals();
 		_gameSettings = Resources.Load<GameSettings>("GameSettings");
 		_gameController = GameObject.FindWithTag(Tags.Main).GetComponent<GameController>();
+		
 	}
 }
