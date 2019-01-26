@@ -124,6 +124,6 @@ MonoBehaviour:
     InnerTargetChance: 0.5
   AsteroidPrefab: {fileID: 9159378186241741116, guid: 169e2a6e9d7ef0a45a14f588fdd49582,
     type: 3}
-  AsteroidDespawner: {fileID: 0}
+  AsteroidDespawnerInternal: {fileID: 0}
   currentLifeCount: 0
   currentStage: 0
