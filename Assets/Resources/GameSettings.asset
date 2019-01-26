@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   segmentScores: 14000000280000003c000000500000006400000078000000
+  resourceCapacity: 10
+  collectResouceSpeed: 1

@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour, IResetable
 		{
 			Ship.StopMovement();
 		}
+
+		if (controlmode == ControlMode.ShieldMovement)
+		{
+			Game.Instance.GameModel.DeliverResources();
+		}
 	}
 
 	private void OnTriggerCollisionExit(TriggerCollisionType type)
@@ -90,6 +95,9 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void HandleResourceGathering()
 	{
-		
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			Game.Instance.GameModel.IncreaseResourceAmount(Game.Instance.GameSettings.collectResouceSpeed);
+		}
 	}
 }

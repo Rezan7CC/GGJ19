@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameModel
 {
 	private int _score;
@@ -38,5 +40,36 @@ public class GameModel
 	public ControlMode GetControlMode()
 	{
 		return _controlMode;
+	}
+
+	private int _resourceAmount;
+	public delegate void ResourceAmountChange(int amount);
+	public ResourceAmountChange OnResourceAmountChange;
+
+	public void SetResourceAmount(int amount)
+	{
+		_resourceAmount = amount;
+		if (OnResourceAmountChange != null)
+		{
+			OnResourceAmountChange(_resourceAmount);
+		}
+	}
+
+	public void IncreaseResourceAmount(int amount)
+	{
+		_resourceAmount = Mathf.Min(_resourceAmount + amount, Game.Instance.GameSettings.resourceCapacity);
+		if (OnResourceAmountChange != null)
+		{
+			OnResourceAmountChange(_resourceAmount);
+		}
+	}
+
+	public void DeliverResources()
+	{
+		if (_resourceAmount > 0)
+		{
+			IncreaseScore(_resourceAmount);
+			SetResourceAmount(0);
+		}
 	}
 }
