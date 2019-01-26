@@ -1,9 +1,9 @@
-namespace DefaultNamespace.Game
+public class GameSignals
 {
-	public class GameSignals
-	{
-		public delegate void TriggerCollision(TriggerCollisionType type);
-		public TriggerCollision OnTriggerEnter;
-		public TriggerCollision OnTriggerExit;
-	}
+	public delegate void TriggerCollision(TriggerCollisionType type);
+	public TriggerCollision OnTriggerCollisionEnter;
+	public TriggerCollision OnTriggerCollisionExit;
+	
+	public delegate void IntTrigger(int value);
+	public IntTrigger OnHomeSegmentCountChanged;
 }

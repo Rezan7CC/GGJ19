@@ -2,7 +2,7 @@
 using DefaultNamespace;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour, IResetable
 {
     private void Start()
     {
@@ -23,5 +23,10 @@ public class GameController : MonoBehaviour
         {
             Game.Instance.GameModel.IncreaseScore(20);
         }
+    }
+
+    public void Reset()
+    {
+        Game.Instance.GameModel.SetScore(0);
     }
 }
