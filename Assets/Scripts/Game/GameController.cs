@@ -14,7 +14,42 @@ public class GameController : MonoBehaviour, IResetable
 
     private void Start()
     {
+        _gameInstance.GameModel.OnScoreChange += OnScoreChanged;
+        _gameInstance.GameModel.OnHealthChange += OnHealthChanged;
+
+        _gameInstance.GameSignals.OnWin += OnWin;
+        _gameInstance.GameSignals.OnGameOver += OnGameOver;
+        
         RestartGame();
+    }
+
+    private void OnGameOver()
+    {
+        RestartGame();
+    }
+
+    private void OnWin()
+    {
+        RestartGame();
+    }
+
+    private void OnHealthChanged(int health)
+    {
+        if (health == 0 && _gameInstance.GameSignals.OnGameOver != null)
+        {
+            Debug.Log("GAME OVER!!!");
+            _gameInstance.GameSignals.OnGameOver();
+        }
+    }
+
+    private void OnScoreChanged(int score)
+    {
+        if (score >= _gameInstance.GameSettings.segmentScores[_gameInstance.GameSettings.segmentScores.Length - 1] &&
+            _gameInstance.GameSignals.OnWin != null)
+        {
+            Debug.Log("WIN!!!");
+            _gameInstance.GameSignals.OnWin();
+        }
     }
 
     public void RestartGame()
