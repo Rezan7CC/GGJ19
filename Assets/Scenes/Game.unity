@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -816,6 +816,17 @@ PrefabInstance:
       propertyPath: AsteroidDespawnerInternal
       value: 
       objectReference: {fileID: 1813200854}
+    - target: {fileID: 4405189842095453540, guid: e550dd623c3d9284a966288d2c5cde5e,
+        type: 3}
+      propertyPath: UICanvas
+      value: 
+      objectReference: {fileID: 977626561}
+    - target: {fileID: 4405189842095453540, guid: e550dd623c3d9284a966288d2c5cde5e,
+        type: 3}
+      propertyPath: AstroidWarningIndicatorPrefab
+      value: 
+      objectReference: {fileID: 3007749065056418431, guid: afa10e1897c9c9e4c87e09151cb217c9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e550dd623c3d9284a966288d2c5cde5e, type: 3}
 --- !u!1 &627685157
@@ -1650,21 +1661,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 775313418104974947, guid: a7b20d711b2274881b90c7fbf0803177,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shield
-      objectReference: {fileID: 0}
     - target: {fileID: 775313418104974941, guid: a7b20d711b2274881b90c7fbf0803177,
         type: 3}
       propertyPath: Center
       value: 
       objectReference: {fileID: 384690190}
-    - target: {fileID: 775313419106149073, guid: a7b20d711b2274881b90c7fbf0803177,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shield
-      objectReference: {fileID: 0}
     - target: {fileID: 775313419106149074, guid: a7b20d711b2274881b90c7fbf0803177,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1704,6 +1705,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 775313418104974947, guid: a7b20d711b2274881b90c7fbf0803177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 775313419106149073, guid: a7b20d711b2274881b90c7fbf0803177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b20d711b2274881b90c7fbf0803177, type: 3}
