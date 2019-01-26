@@ -29,6 +29,8 @@ public class AsteroidConfig
     public float InnerTargetChance;
 
     public float DeadZone = 25.0f;
+
+    public bool UrgentAlarm = false;
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -41,6 +43,10 @@ public class AsteroidSpawner : MonoBehaviour
     public AsteroidDespawner AsteroidDespawnerInternal;
     public GameObject AstroidWarningIndicatorPrefab;
     public GameObject UICanvas;
+
+    public AudioSource AlarmSource;
+    public AudioClip NormalAlarmClip;
+    public AudioClip UrgentAlarmClip;
 
     public int currentLifeCount = 0;
     public int currentStage = 0;
@@ -138,6 +144,7 @@ public class AsteroidSpawner : MonoBehaviour
         movement.AsteroidSpawnerInternal = this;
 
         GameObject warningIndicator = Instantiate<GameObject>(AstroidWarningIndicatorPrefab);
+        AlarmSource.PlayOneShot(asteroidStage[currentStage].UrgentAlarm ? UrgentAlarmClip : NormalAlarmClip);
         warningIndicator.transform.SetParent(UICanvas.transform);
         movement.AstroidWarningIndicator = warningIndicator.GetComponent<RectTransform>();
         movement.Init();
