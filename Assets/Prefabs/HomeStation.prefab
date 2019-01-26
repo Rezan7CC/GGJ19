@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldObject: {fileID: 775313418104974947}
   Center: {fileID: 0}
-  Speed: 10
+  Speed: 2.5
 --- !u!1 &775313419106149073
 GameObject:
   m_ObjectHideFlags: 0
