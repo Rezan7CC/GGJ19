@@ -27,6 +27,8 @@ public class AsteroidConfig
     public float OuterTargetRadius;
 
     public float InnerTargetChance;
+
+    public float DeadZone = 25.0f;
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -86,28 +88,28 @@ public class AsteroidSpawner : MonoBehaviour
                 {
                         if (!asteroidStage[currentStage].TopLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(0, 90);
+                        rotationAngle = Random.Range(asteroidStage[currentStage].DeadZone, 90);
                     break;
                 }
                 case 1:
                     {
                         if (!asteroidStage[currentStage].TopRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(240, 360);
+                        rotationAngle = Random.Range(240, 360 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 2:
                     {
                         if (!asteroidStage[currentStage].BottomLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(90, 180);
+                        rotationAngle = Random.Range(90, 180 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 3:
                     {
                         if (!asteroidStage[currentStage].BottomRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(180, 240);
+                        rotationAngle = Random.Range(180 + asteroidStage[currentStage].DeadZone, 240);
                         break;
                     }
             }
