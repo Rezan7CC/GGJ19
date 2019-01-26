@@ -47,9 +47,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -60,9 +61,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -73,9 +75,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -86,9 +89,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -99,9 +103,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -112,9 +117,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -125,9 +131,10 @@ MonoBehaviour:
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
-    MinSpeed: 0.5
+    MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
+    DistanceSpeedFactor: 1
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1

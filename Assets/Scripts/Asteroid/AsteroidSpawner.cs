@@ -6,25 +6,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class AsteroidConfig
 {
-    AsteroidConfig(float minFrequency, float maxFrequency, int maximumLifeCount, float minSpeed, float maxSpeed, float spawnDistance, 
-        bool topLeftQuadrant, bool topRightQuadrant, bool bottomLeftQuadrant, bool bottomRightQuadrant, 
-        float innerTargetRadius, float outerTargetRadius, float innerTargetChance)
-    {
-        MinFrequency = minFrequency;
-        MaxFrequency = maxFrequency;
-        MaximumLifeCount = maximumLifeCount;
-        MinSpeed = minSpeed;
-        MaxSpeed = maxSpeed;
-        SpawnDistance = spawnDistance;
-        TopLeftQuadrant = topLeftQuadrant;
-        TopRightQuadrant = topRightQuadrant;
-        BottomLeftQuadrant = bottomLeftQuadrant;
-        BottomRightQuadrant = bottomRightQuadrant;
-        InnerTargetRadius = innerTargetRadius;
-        OuterTargetRadius = outerTargetRadius;
-        InnerTargetChance = innerTargetChance;
-    }
-
     public float MinFrequency;
     public float MaxFrequency;
 
@@ -34,6 +15,8 @@ public class AsteroidConfig
     public float MaxSpeed;
 
     public float SpawnDistance;
+
+    public float DistanceSpeedFactor = 1.0f;
 
     public bool TopLeftQuadrant;
     public bool TopRightQuadrant;
@@ -132,7 +115,9 @@ public class AsteroidSpawner : MonoBehaviour
 
 
         Vector3 spawnDir = Quaternion.Euler(0, 0, rotationAngle) * new Vector3(0, 1, 0);
-        asteroidInstance.transform.position = spawnDir * asteroidStage[currentStage].SpawnDistance;
+        float spawnDist = asteroidStage[currentStage].SpawnDistance;
+        asteroidInstance.transform.position = spawnDir *
+            Mathf.LerpUnclamped(spawnDist, spawnDist * movement.Speed, asteroidStage[currentStage].DistanceSpeedFactor);
 
         float circleResult = Random.Range(0.0f, 1.0f);
 
