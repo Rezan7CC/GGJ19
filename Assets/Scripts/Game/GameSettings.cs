@@ -8,7 +8,7 @@ public class GameSettings : ScriptableObject
 	
 	[Header("Resources")]
 	public int resourceCapacity;
-	public int collectResouceSpeed;
+	public float totalCollectDuration;
 	
 	[Header("Health")]
 	public int maxHealth;
