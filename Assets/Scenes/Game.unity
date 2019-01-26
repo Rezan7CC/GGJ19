@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405189842095453540, guid: e550dd623c3d9284a966288d2c5cde5e,
         type: 3}
-      propertyPath: AsteroidDespawner
+      propertyPath: AsteroidDespawnerInternal
       value: 
       objectReference: {fileID: 1813200854}
     m_RemovedComponents: []
@@ -1193,14 +1193,25 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 678972665176802786, guid: dba290c214b49b349b036d0a57b18e1b,
+        type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 534669904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba290c214b49b349b036d0a57b18e1b, type: 3}
---- !u!65 &1813200854 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 9038026825529166766, guid: dba290c214b49b349b036d0a57b18e1b,
+--- !u!114 &1813200854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 678972665176802786, guid: dba290c214b49b349b036d0a57b18e1b,
     type: 3}
   m_PrefabInstance: {fileID: 1813200853}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937169609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d9fca668b2cf241bd113c78910f78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1906990550
 GameObject:
   m_ObjectHideFlags: 0
