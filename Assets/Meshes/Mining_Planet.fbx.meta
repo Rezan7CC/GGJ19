@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: 26f4f23e21c851246b3248c607caf870
+guid: b582fac5295a7c04c82b30f97788d57a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: Tex
-    2100002: lambert4
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Station_Segment_01_Full5_DUP
-    4300002: Station_Segment_01_Full5_DUP6
-    4300004: glow
+    4300000: Mining_Planet
   externalObjects: {}
   materials:
     importMaterials: 1

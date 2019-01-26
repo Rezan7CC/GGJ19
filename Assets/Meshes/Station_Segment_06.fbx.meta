@@ -6,19 +6,24 @@ ModelImporter:
     100000: //RootNode
     100002: Station_Segment_06_Full
     100004: Station_Segment_04_Full
+    100006: Station_Segment_03_Full
     400000: //RootNode
     400002: Station_Segment_06_Full
     400004: Station_Segment_04_Full
+    400006: Station_Segment_03_Full
     2100000: Tex
     2100002: Water
     2300000: //RootNode
     2300002: Station_Segment_06_Full
     2300004: Station_Segment_04_Full
+    2300006: Station_Segment_03_Full
     3300000: //RootNode
     3300002: Station_Segment_06_Full
     3300004: Station_Segment_04_Full
+    3300006: Station_Segment_03_Full
     4300000: Station_Segment_06_Full
     4300002: Station_Segment_04_Full
+    4300004: Station_Segment_03_Full
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
