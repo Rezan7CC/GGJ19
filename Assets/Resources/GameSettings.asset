@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5dab0bc973e4724ad1da7d2d2b83e16, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  segmentScores: 64000000c80000002c01000090010000f401000058020000
+  segmentScores: 14000000280000003c000000500000006400000078000000

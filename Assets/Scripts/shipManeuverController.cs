@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class shipManeuverController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     public float maxVelocity = 5;
     public float rotationSpeed = 3;
+    
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
-
-
 
     // Update is called once per frame
     void Update()
