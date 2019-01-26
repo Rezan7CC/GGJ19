@@ -7,6 +7,7 @@ TagManager:
   - Main
   - Astroid
   - Shield
+  - Segment
   layers:
   - Default
   - TransparentFX
