@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.450822, g: 0.50074047, b: 0.5746942, a: 1}
+  m_IndirectSpecularColor: {r: 0.45082223, g: 0.5007409, b: 0.57469463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -577,7 +577,7 @@ PrefabInstance:
         type: 3}
       propertyPath: UICanvas
       value: 
-      objectReference: {fileID: 977626561}
+      objectReference: {fileID: 4650853396073789902}
     - target: {fileID: 4405189842095453540, guid: e550dd623c3d9284a966288d2c5cde5e,
         type: 3}
       propertyPath: AstroidWarningIndicatorPrefab
@@ -1280,7 +1280,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 977626566}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1970,16 +1970,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomeStation
       objectReference: {fileID: 0}
-    - target: {fileID: 775313418104974941, guid: a7b20d711b2274881b90c7fbf0803177,
-        type: 3}
-      propertyPath: Center
-      value: 
-      objectReference: {fileID: 384690190}
-    - target: {fileID: 775313419106149073, guid: a7b20d711b2274881b90c7fbf0803177,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shield
-      objectReference: {fileID: 0}
     - target: {fileID: 9217300366439828619, guid: a7b20d711b2274881b90c7fbf0803177,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2036,6 +2026,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775313418104974947, guid: a7b20d711b2274881b90c7fbf0803177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 775313418104974941, guid: a7b20d711b2274881b90c7fbf0803177,
+        type: 3}
+      propertyPath: Center
+      value: 
+      objectReference: {fileID: 384690190}
+    - target: {fileID: 775313419106149073, guid: a7b20d711b2274881b90c7fbf0803177,
         type: 3}
       propertyPath: m_TagString
       value: Shield
@@ -2164,26 +2164,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
-    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: MammothResourceCollectTransform
-      value: 
-      objectReference: {fileID: 6419139994276497407}
-    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: CollectPosition.x
-      value: 5.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: CollectPosition.y
-      value: -1.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: CollectRotation.z
-      value: -45.301
-      objectReference: {fileID: 0}
     - target: {fileID: 1939746874561516207, guid: 8631aaaa6554b4e42a617e75899050fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2248,6 +2228,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpaceShipMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
+        type: 3}
+      propertyPath: MammothResourceCollectTransform
+      value: 
+      objectReference: {fileID: 6419139994276497407}
+    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
+        type: 3}
+      propertyPath: CollectPosition.x
+      value: 5.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
+        type: 3}
+      propertyPath: CollectPosition.y
+      value: -1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
+        type: 3}
+      propertyPath: CollectRotation.z
+      value: -45.301
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8631aaaa6554b4e42a617e75899050fd, type: 3}
@@ -2494,6 +2494,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4650853396511010544, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4650853396511010546, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
         type: 3}
       propertyPath: m_Type
@@ -2506,6 +2511,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c24b5afc5ce8403e9f810368b33b5ee, type: 3}
+--- !u!1 &4650853396073789902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5702012375977962563, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 4650853396073789901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4762338486524558021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4762338486524558021, guid: a7b20d711b2274881b90c7fbf0803177,
