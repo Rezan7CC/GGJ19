@@ -7,7 +7,8 @@ public class shipManeuverController : MonoBehaviour, IResetable
     public float maxVelocity = 5;
     public float rotationSpeed = 3;
     public float acceleration = 3;
-    
+    public AudioSource FlightAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,15 @@ public class shipManeuverController : MonoBehaviour, IResetable
     public void HandleMovement()
     {
         float yAxis = Input.GetAxis("Vertical") * acceleration;
+        if(yAxis > Mathf.Epsilon && !FlightAudioSource.isPlaying)
+        {
+            FlightAudioSource.Play();
+        }
+        else if(yAxis <= Mathf.Epsilon && FlightAudioSource.isPlaying)
+        {
+            FlightAudioSource.Stop();
+        }
+
         float xAxis = Input.GetAxis("Horizontal") * rotationSpeed;
         ThrustForward(yAxis);
         Rotate(transform, xAxis);
