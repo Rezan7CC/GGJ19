@@ -57,9 +57,73 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MaximumLifeCount: 5
+    MinSpeed: 0.5
+    MaxSpeed: 2
+    SpawnDistance: 10
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MaximumLifeCount: 5
+    MinSpeed: 0.5
+    MaxSpeed: 2
+    SpawnDistance: 10
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MaximumLifeCount: 5
+    MinSpeed: 0.5
+    MaxSpeed: 2
+    SpawnDistance: 10
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MaximumLifeCount: 5
+    MinSpeed: 0.5
+    MaxSpeed: 2
+    SpawnDistance: 10
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MaximumLifeCount: 5
+    MinSpeed: 0.5
+    MaxSpeed: 2
+    SpawnDistance: 10
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
   AsteroidPrefab: {fileID: 9159378186241741116, guid: 169e2a6e9d7ef0a45a14f588fdd49582,
     type: 3}
-  AsteroidDespawner: {fileID: 9038026825529166766, guid: dba290c214b49b349b036d0a57b18e1b,
-    type: 3}
+  AsteroidDespawner: {fileID: 0}
   currentLifeCount: 0
   currentStage: 0
