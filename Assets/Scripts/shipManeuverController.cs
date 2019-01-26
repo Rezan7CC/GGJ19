@@ -14,12 +14,17 @@ public class shipManeuverController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public void HandleMovement()
     {
         float yAxis = Input.GetAxis("Vertical") * acceleration;
         float xAxis = Input.GetAxis("Horizontal") * rotationSpeed;
         ThrustForward(yAxis);
         Rotate(transform, xAxis);
+    }
+
+    public void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
     }
 
     #region Maneuvering API
