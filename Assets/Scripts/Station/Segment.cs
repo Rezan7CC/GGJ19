@@ -35,7 +35,6 @@ public class Segment : MonoBehaviour
     {
         if (hitSegment == segment.gameObject)
         {
-            Debug.Log("boom");
             Game.Instance.GameModel.ReduceHealth(Game.Instance.GameSettings.astroidDamage);
         }
     }

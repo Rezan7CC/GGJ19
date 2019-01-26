@@ -101,7 +101,6 @@ public class GameModel
 		_health = Mathf.Max(_health - damage, 0);
 		if (OnHealthChange != null)
 		{
-			Debug.Log("reduced health to: " + _health);
 			OnHealthChange(_health);
 		}
 	}
