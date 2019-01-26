@@ -19,6 +19,11 @@ public class AsteroidSpawner : MonoBehaviour
     public bool BottomLeftQuadrant = true;
     public bool BottomRightQuadrant = false;
 
+    public float InnerTargetRadius = 3.0f;
+    public float OuterTargetRadius = 7.0f;
+
+    public float InnerTargetChance = 0.5f;
+
     private float spawnTimer = 0.0f;
 
     // Start is called before the first frame update
@@ -89,7 +94,19 @@ public class AsteroidSpawner : MonoBehaviour
         Vector3 spawnDir = Quaternion.Euler(0, 0, rotationAngle) * new Vector3(0, 1, 0);
         asteroidInstance.transform.position = spawnDir * SpawnDistance;
 
-        movement.Direction = -spawnDir;
+        float circleResult = Random.Range(0.0f, 1.0f);
+
+        Vector3 targetPosition;
+        if(InnerTargetChance >= circleResult)
+        {
+            targetPosition = Random.insideUnitCircle * InnerTargetRadius;
+        }
+        else
+        {
+            targetPosition = Random.insideUnitCircle * OuterTargetRadius;
+        }
+
+        movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
     }
 }
 
