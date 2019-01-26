@@ -47,7 +47,7 @@ public class AsteroidConfig
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public AsteroidConfig[] asteroidStage = new AsteroidConfig[6];
+    public AsteroidConfig[] asteroidStage = new AsteroidConfig[7];
 
     private float spawnTimer = 0.0f;
 
@@ -151,6 +151,7 @@ public class AsteroidSpawner : MonoBehaviour
     
     private void OnHomeSegmentsChanged(int value)
     {
+        currentStage = value;
         Debug.Log("totalSegments: " + value);
     }
 }
