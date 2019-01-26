@@ -8,7 +8,8 @@ public class particleTrail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && !(Game.Instance.GameModel.GetControlMode() == ControlMode.ResourceGathering))
+        if (Input.GetKey(KeyCode.W) && !(Game.Instance.GameModel.GetControlMode() == ControlMode.ResourceGathering) 
+            && !(Game.Instance.GameModel.GetControlMode() == ControlMode.ShieldMovement))
         {
             thruster.Emit(particleAmount); //Emit some particle
         }
