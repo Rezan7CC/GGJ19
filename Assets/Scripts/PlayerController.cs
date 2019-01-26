@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IResetable
 	public Shield Shield;
 	public shipManeuverController Ship;
 	public MammothViewController MammothViewController;
+    public Rigidbody ShipRigidbody;
 
     public AudioSource PlayerAudioSource;
     public AudioClip LaunchAudioClip;
@@ -39,17 +40,20 @@ public class PlayerController : MonoBehaviour, IResetable
 	{
         if (controlmode == ControlMode.ShipMovement)
         {
+            ShipRigidbody.isKinematic = false;
             PlayerAudioSource.PlayOneShot(LaunchAudioClip);
         }
 
         if (controlmode != ControlMode.ShipMovement)
-		{
-			Ship.StopMovement();
-		}
+        {
+            ShipRigidbody.isKinematic = true;
+            Ship.StopMovement();
+        }
 
-		if (controlmode == ControlMode.ShieldMovement)
+        if (controlmode == ControlMode.ShieldMovement)
         {
             PlayerAudioSource.PlayOneShot(LandAudioClip);
+	        MammothViewController.DockToHomebase();
             Game.Instance.GameModel.DeliverResources();
 		}
 
@@ -80,18 +84,21 @@ public class PlayerController : MonoBehaviour, IResetable
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		HandleControlMode();
+	}
+
+	private void FixedUpdate()
+	{
 		_controlsMapping[Game.Instance.GameModel.GetControlMode()]();
 	}
 
 	private void HandleControlMode()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && _currentTriggerCollisionType != TriggerCollisionType.None)
 		{
-			if (_currentTriggerCollisionType != TriggerCollisionType.None &&
-			    Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
+			if (Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
 			{
 				var controlMode = _collisionTypeMapping[_currentTriggerCollisionType];
 				Game.Instance.GameModel.SetControlMode(controlMode);

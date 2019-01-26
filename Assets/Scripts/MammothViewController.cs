@@ -26,4 +26,9 @@ public class MammothViewController : MonoBehaviour, IResetable
         transform.position = originPosition;
         transform.rotation = originRotation;
     }
+
+    public void DockToHomebase()
+    {
+        transform.position = Vector3.zero;
+    }
 }
