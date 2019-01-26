@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IResetable
 		if (controlmode == ControlMode.ShieldMovement)
         {
             PlayerAudioSource.PlayOneShot(LandAudioClip);
+	        MammothViewController.DockToHomebase();
             Game.Instance.GameModel.DeliverResources();
 		}
 
