@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour, IResetable
 {
+    private Game _gameInstance;
+
+    private void Awake()
+    {
+        _gameInstance = Game.Instance;
+    }
+
     private void Start()
     {
         RestartGame();
@@ -20,7 +27,8 @@ public class GameController : MonoBehaviour, IResetable
 
     public void Reset()
     {
-        Game.Instance.GameModel.SetScore(0);
-        Game.Instance.GameModel.SetResourceAmount(0);
+        _gameInstance.GameModel.SetScore(0);
+        _gameInstance.GameModel.SetResourceAmount(0);
+        _gameInstance.GameModel.SetHealth(_gameInstance.GameSettings.maxHealth);
     }
 }

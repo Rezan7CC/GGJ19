@@ -82,4 +82,31 @@ public class GameModel
 	{
 		return (float) _resourceAmount / Game.Instance.GameSettings.resourceCapacity;
 	}
+
+	private int _health;
+	public delegate void HealthChange(int health);
+	public HealthChange OnHealthChange;
+
+	public void SetHealth(int health)
+	{
+		_health = health;
+		if (OnHealthChange != null)
+		{
+			OnHealthChange(_health);
+		}
+	}
+	
+	public void ReduceHealth(int damage)
+	{
+		_health = Mathf.Max(_health - damage, 0);
+		if (OnHealthChange != null)
+		{
+			OnHealthChange(_health);
+		}
+	}
+
+	public float GetNormalizedHealth()
+	{
+		return (float) _health / Game.Instance.GameSettings.maxHealth;
+	}
 }

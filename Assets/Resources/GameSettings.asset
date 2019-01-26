@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5dab0bc973e4724ad1da7d2d2b83e16, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  segmentScores: 14000000280000003c000000500000006400000078000000
+  segmentScores: 000000000000000000000000000000000000000078000000
   resourceCapacity: 10
   collectResouceSpeed: 1
+  maxHealth: 5
+  astroidDamage: 1
