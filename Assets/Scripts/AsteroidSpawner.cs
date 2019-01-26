@@ -7,10 +7,13 @@ public class AsteroidSpawner : MonoBehaviour
     public float MinFrequency = 2.0f;
     public float MaxFrequency = 5.0f;
 
+    public int MaximumLifeCount = 5;
+
     public float MinSpeed = 0.5f;
     public float MaxSpeed = 2.0f;
 
     public GameObject AsteroidPrefab;
+    public BoxCollider AsteroidDespawner;
 
     public float SpawnDistance = 10.0f;
 
@@ -26,10 +29,12 @@ public class AsteroidSpawner : MonoBehaviour
 
     private float spawnTimer = 0.0f;
 
+    public int currentLifeCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        currentLifeCount = 0;
     }
 
     // Update is called once per frame
@@ -45,13 +50,17 @@ public class AsteroidSpawner : MonoBehaviour
 
     void SpawnAsteroid()
     {
-        GameObject asteroidInstance = Instantiate<GameObject>(AsteroidPrefab);
-
-        AsteroidMovement movement = asteroidInstance.GetComponent<AsteroidMovement>();
-        movement.Speed = Random.Range(MinSpeed, MaxSpeed);
+        if (currentLifeCount >= MaximumLifeCount)
+            return;
 
         if (!TopLeftQuadrant && !TopRightQuadrant && !BottomLeftQuadrant && !BottomRightQuadrant)
             return;
+
+        GameObject asteroidInstance = Instantiate<GameObject>(AsteroidPrefab);
+        ++currentLifeCount;
+
+        AsteroidMovement movement = asteroidInstance.GetComponent<AsteroidMovement>();
+        movement.Speed = Random.Range(MinSpeed, MaxSpeed);
 
         float rotationAngle = 0.0f;
         for(int i = 0; i < 1000; ++i)
@@ -107,6 +116,8 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
+        movement.AsteroidDespawner = AsteroidDespawner;
+        movement.AsteroidSpawnerInternal = this;
     }
 }
 
