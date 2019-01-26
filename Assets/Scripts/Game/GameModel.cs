@@ -24,14 +24,14 @@ public class GameModel
 	
 	private ControlMode _controlMode;
 	public delegate void ControlsModeChange(ControlMode controlMode);
-	public ControlsModeChange OnControlMode;
+	public ControlsModeChange OnControlModeChanged;
 
 	public void SetControlMode(ControlMode controlMode)
 	{
 		_controlMode = controlMode;
-		if (OnControlMode != null)
+		if (OnControlModeChanged != null)
 		{
-			OnControlMode(_controlMode);
+			OnControlModeChanged(_controlMode);
 		}
 	}
 
