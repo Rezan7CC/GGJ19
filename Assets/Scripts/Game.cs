@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Game
 {
-	private static Game instance = null;
+	private static Game _instance = null;
 	private Game()
 	{
 	}
@@ -11,12 +11,12 @@ public class Game
 	{
 		get
 		{
-			if (instance==null)
+			if (_instance==null)
 			{
-				instance = new Game();
-				instance.Initialize();
+				_instance = new Game();
+				_instance.Initialize();
 			}
-			return instance;
+			return _instance;
 		}
 	}
 	
