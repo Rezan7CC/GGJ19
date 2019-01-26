@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 775313418104974941}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,11 +177,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9217300366439828619}
     m_Modifications:
-    - target: {fileID: 602676428851229399, guid: bb7b34890ebc141a0af7404c7022532f,
-        type: 3}
-      propertyPath: m_Name
-      value: Station
-      objectReference: {fileID: 0}
     - target: {fileID: 2136849861085966668, guid: bb7b34890ebc141a0af7404c7022532f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -251,6 +246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 602676428851229399, guid: bb7b34890ebc141a0af7404c7022532f,
+        type: 3}
+      propertyPath: m_Name
+      value: Station
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7b34890ebc141a0af7404c7022532f, type: 3}
