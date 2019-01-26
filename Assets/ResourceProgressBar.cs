@@ -11,6 +11,7 @@ public class ResourceProgressBar : MonoBehaviour
         Game.Instance.GameModel.OnScoreChange += OnScoreChanged;
         var segmentScores = Game.Instance.GameSettings.segmentScores;
         _maxSegmentScore = segmentScores[segmentScores.Length - 1];
+        ProgressBar.fillAmount = 0;
     }
 
     private void OnScoreChanged(int score)
