@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IResetable
 	public Shield Shield;
 	public shipManeuverController Ship;
 	public MammothViewController MammothViewController;
+    public Rigidbody ShipRigidbody;
 
     public AudioSource PlayerAudioSource;
     public AudioClip LaunchAudioClip;
@@ -39,15 +40,17 @@ public class PlayerController : MonoBehaviour, IResetable
 	{
         if (controlmode == ControlMode.ShipMovement)
         {
+            ShipRigidbody.isKinematic = false;
             PlayerAudioSource.PlayOneShot(LaunchAudioClip);
         }
 
         if (controlmode != ControlMode.ShipMovement)
-		{
-			Ship.StopMovement();
-		}
+        {
+            ShipRigidbody.isKinematic = true;
+            Ship.StopMovement();
+        }
 
-		if (controlmode == ControlMode.ShieldMovement)
+        if (controlmode == ControlMode.ShieldMovement)
         {
             PlayerAudioSource.PlayOneShot(LandAudioClip);
 	        MammothViewController.DockToHomebase();
