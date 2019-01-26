@@ -2,6 +2,7 @@
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour, IResetable
 {
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour, IResetable
     private void Awake()
     {
         _gameInstance = Game.Instance;
+        _gameInstance.Restart();
     }
 
     private void Start()
@@ -25,7 +27,7 @@ public class GameController : MonoBehaviour, IResetable
 
     private void OnGameOver()
     {
-        RestartGame();
+        SceneManager.LoadScene(0);
     }
 
     private void OnWin()

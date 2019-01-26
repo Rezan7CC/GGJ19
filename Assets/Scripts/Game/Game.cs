@@ -50,6 +50,10 @@ public class Game
 		_gameSignals = new GameSignals();
 		_gameSettings = Resources.Load<GameSettings>("GameSettings");
 		_gameController = GameObject.FindWithTag(Tags.Main).GetComponent<GameController>();
-		
+	}
+
+	public void Restart()
+	{
+		Initialize();
 	}
 }
