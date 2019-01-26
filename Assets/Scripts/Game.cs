@@ -32,16 +32,16 @@ public class Game
 		get { return _gameModel; }
 	}
 
-	private ServiceLocator _serviceLocator;
-	public ServiceLocator ServiceLocator
+	private GameSettings _gameSettings;
+	public GameSettings GameSettings
 	{
-		get { return _serviceLocator; }
+		get { return _gameSettings; }
 	}
 
 	private void Initialize()
 	{
 		_gameModel = new GameModel();
+		_gameSettings = Resources.Load<GameSettings>("GameSettings");
 		_gameController = GameObject.FindWithTag(Tags.Main).GetComponent<GameController>();
-		_serviceLocator = GameObject.FindWithTag(Tags.Main).GetComponent<ServiceLocator>();
 	}
 }
