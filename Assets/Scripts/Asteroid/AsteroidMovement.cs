@@ -70,4 +70,12 @@ public class AsteroidMovement : MonoBehaviour
         --AsteroidSpawnerInternal.currentLifeCount;
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag.Equals(Tags.Shield))
+        {
+            DestroyAsteroid();
+        }
+    }
 }
