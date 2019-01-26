@@ -41,7 +41,7 @@ public class shipManeuverController : MonoBehaviour
 
     private void Rotate(Transform t, float amount)
     {
-        t.Rotate(amount, 0, 0);
+        t.Rotate(0, 0, -amount);
     }
     #endregion
 }
