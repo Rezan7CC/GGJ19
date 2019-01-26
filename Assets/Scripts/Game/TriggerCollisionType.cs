@@ -1,8 +1,5 @@
-namespace DefaultNamespace.Game
+public enum TriggerCollisionType
 {
-	public enum TriggerCollisionType
-	{
-		HomeStation,
-		ResourcePlanet
-	}
+	HomeStation = 0,
+	ResourcePlanet = 1
 }

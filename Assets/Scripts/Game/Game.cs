@@ -1,4 +1,3 @@
-using DefaultNamespace.Game;
 using UnityEngine;
 
 public class Game

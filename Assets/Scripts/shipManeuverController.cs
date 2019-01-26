@@ -5,6 +5,7 @@ public class shipManeuverController : MonoBehaviour
     private Rigidbody rb;
     public float maxVelocity = 5;
     public float rotationSpeed = 3;
+    public float acceleration = 3;
     
     // Start is called before the first frame update
     void Start()
@@ -15,10 +16,10 @@ public class shipManeuverController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float yAxis = Input.GetAxis("Vertical");
-        float xAxis = Input.GetAxis("Horizontal");
+        float yAxis = Input.GetAxis("Vertical") * acceleration;
+        float xAxis = Input.GetAxis("Horizontal") * rotationSpeed;
         ThrustForward(yAxis);
-        Rotate(transform, xAxis * rotationSpeed);
+        Rotate(transform, xAxis);
     }
 
     #region Maneuvering API
