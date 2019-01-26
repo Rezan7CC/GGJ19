@@ -9,6 +9,10 @@ public class GameSignals
 	public delegate void IntTrigger(int value);
 	public IntTrigger OnHomeSegmentCountChanged;
 
-	public delegate void GameObjectTrigger(GameObject gameObject);
+	public delegate void GameObjectTrigger(GameObject segment);
 	public GameObjectTrigger OnAstroidHitSegment;
+
+	public delegate void VoidTrigger();
+	public VoidTrigger OnGameOver;
+	public VoidTrigger OnWin;
 }

@@ -9,7 +9,12 @@ public class PlayerController : MonoBehaviour, IResetable
 	public shipManeuverController Ship;
 	public MammothViewController MammothViewController;
 
-	private TriggerCollisionType _currentTriggerCollisionType;
+    public AudioSource PlayerAudioSource;
+    public AudioClip LaunchAudioClip;
+    public AudioClip LandAudioClip;
+    public AudioSource DrillingAudioSource;
+
+    private TriggerCollisionType _currentTriggerCollisionType;
 
 	private readonly Dictionary<ControlMode, Action> _controlsMapping = new Dictionary<ControlMode, Action>();
 	private readonly Dictionary<TriggerCollisionType, ControlMode> _collisionTypeMapping = new Dictionary<TriggerCollisionType, ControlMode>()
@@ -32,20 +37,33 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void OnControlModeChanged(ControlMode controlmode)
 	{
-		if (controlmode != ControlMode.ShipMovement)
+        if (controlmode == ControlMode.ShipMovement)
+        {
+            PlayerAudioSource.PlayOneShot(LaunchAudioClip);
+        }
+
+        if (controlmode != ControlMode.ShipMovement)
 		{
 			Ship.StopMovement();
 		}
 
 		if (controlmode == ControlMode.ShieldMovement)
-		{
-			Game.Instance.GameModel.DeliverResources();
+        {
+            PlayerAudioSource.PlayOneShot(LandAudioClip);
+	        MammothViewController.DockToHomebase();
+            Game.Instance.GameModel.DeliverResources();
 		}
 
 		if (controlmode == ControlMode.ResourceGathering)
 		{
-			MammothViewController.DockToResourcePlanet();
-		}
+            PlayerAudioSource.PlayOneShot(LandAudioClip);
+            MammothViewController.DockToResourcePlanet();
+            DrillingAudioSource.Play();
+        }
+        else
+        {
+            DrillingAudioSource.Stop();
+        }
 	}
 
 	private void OnTriggerCollisionExit(TriggerCollisionType type)

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AsteroidMovement : MonoBehaviour
+public class AsteroidMovement : MonoBehaviour, IResetable
 {
     public float OffsetBufferPixel = 10.0f;
 
@@ -96,6 +97,16 @@ public class AsteroidMovement : MonoBehaviour
         {
             DestroyAsteroid();
         }
+
+        if (other.gameObject.tag.Equals(Tags.Segment))
+        {
+            DestroyAsteroid();
+
+            if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
+            {
+                Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
+            }
+        }
     }
 
     float ClampPixelHeight(float height)
@@ -141,5 +152,10 @@ public class AsteroidMovement : MonoBehaviour
             AstroidWarningIndicator.position = new Vector3(offset, ClampPixelHeight(positionScreenSpace.y), 0);
             AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 90);
         }
+    }
+
+    public void Reset()
+    {
+        DestroyAsteroid();
     }
 }

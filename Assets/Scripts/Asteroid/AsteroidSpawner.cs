@@ -27,6 +27,10 @@ public class AsteroidConfig
     public float OuterTargetRadius;
 
     public float InnerTargetChance;
+
+    public float DeadZone = 25.0f;
+
+    public bool UrgentAlarm = false;
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -39,6 +43,10 @@ public class AsteroidSpawner : MonoBehaviour
     public AsteroidDespawner AsteroidDespawnerInternal;
     public GameObject AstroidWarningIndicatorPrefab;
     public GameObject UICanvas;
+
+    public AudioSource AlarmSource;
+    public AudioClip NormalAlarmClip;
+    public AudioClip UrgentAlarmClip;
 
     public int currentLifeCount = 0;
     public int currentStage = 0;
@@ -86,28 +94,28 @@ public class AsteroidSpawner : MonoBehaviour
                 {
                         if (!asteroidStage[currentStage].TopLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(0, 90);
+                        rotationAngle = Random.Range(asteroidStage[currentStage].DeadZone, 90);
                     break;
                 }
                 case 1:
                     {
                         if (!asteroidStage[currentStage].TopRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(240, 360);
+                        rotationAngle = Random.Range(240, 360 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 2:
                     {
                         if (!asteroidStage[currentStage].BottomLeftQuadrant)
                             continue;
-                        rotationAngle = Random.Range(90, 180);
+                        rotationAngle = Random.Range(90, 180 - asteroidStage[currentStage].DeadZone);
                         break;
                     }
                 case 3:
                     {
                         if (!asteroidStage[currentStage].BottomRightQuadrant)
                             continue;
-                        rotationAngle = Random.Range(180, 240);
+                        rotationAngle = Random.Range(180 + asteroidStage[currentStage].DeadZone, 240);
                         break;
                     }
             }
@@ -136,6 +144,7 @@ public class AsteroidSpawner : MonoBehaviour
         movement.AsteroidSpawnerInternal = this;
 
         GameObject warningIndicator = Instantiate<GameObject>(AstroidWarningIndicatorPrefab);
+        AlarmSource.PlayOneShot(asteroidStage[currentStage].UrgentAlarm ? UrgentAlarmClip : NormalAlarmClip);
         warningIndicator.transform.SetParent(UICanvas.transform);
         movement.AstroidWarningIndicator = warningIndicator.GetComponent<RectTransform>();
         movement.Init();

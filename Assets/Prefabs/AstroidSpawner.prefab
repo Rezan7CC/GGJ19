@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7282388042881904994}
   - component: {fileID: 4405189842095453540}
+  - component: {fileID: 3502867290825634146}
   m_Layer: 0
   m_Name: AstroidSpawner
   m_TagString: Untagged
@@ -44,6 +45,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidStage:
+  - MinFrequency: 5
+    MaxFrequency: 10
+    MaximumLifeCount: 1
+    MinSpeed: 0.5
+    MaxSpeed: 1.2
+    SpawnDistance: 15
+    DistanceSpeedFactor: 1
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+    DeadZone: 45
+    UrgentAlarm: 0
+  - MinFrequency: 4
+    MaxFrequency: 9
+    MaximumLifeCount: 2
+    MinSpeed: 0.8
+    MaxSpeed: 1.8
+    SpawnDistance: 15
+    DistanceSpeedFactor: 1
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+    DeadZone: 35
+    UrgentAlarm: 0
+  - MinFrequency: 5
+    MaxFrequency: 10
+    MaximumLifeCount: 2
+    MinSpeed: 0.5
+    MaxSpeed: 1.5
+    SpawnDistance: 15
+    DistanceSpeedFactor: 1
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.5
+    DeadZone: 40
+    UrgentAlarm: 0
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
@@ -58,6 +107,8 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
+    DeadZone: 25
+    UrgentAlarm: 0
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
@@ -72,6 +123,8 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
+    DeadZone: 25
+    UrgentAlarm: 0
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
@@ -86,6 +139,8 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
+    DeadZone: 25
+    UrgentAlarm: 0
   - MinFrequency: 2
     MaxFrequency: 5
     MaximumLifeCount: 5
@@ -100,53 +155,112 @@ MonoBehaviour:
     InnerTargetRadius: 3
     OuterTargetRadius: 7
     InnerTargetChance: 0.5
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
-    SpawnDistance: 15
-    DistanceSpeedFactor: 1
-    TopLeftQuadrant: 1
-    TopRightQuadrant: 1
-    BottomLeftQuadrant: 1
-    BottomRightQuadrant: 0
-    InnerTargetRadius: 3
-    OuterTargetRadius: 7
-    InnerTargetChance: 0.5
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
-    SpawnDistance: 15
-    DistanceSpeedFactor: 1
-    TopLeftQuadrant: 1
-    TopRightQuadrant: 1
-    BottomLeftQuadrant: 1
-    BottomRightQuadrant: 0
-    InnerTargetRadius: 3
-    OuterTargetRadius: 7
-    InnerTargetChance: 0.5
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
-    SpawnDistance: 15
-    DistanceSpeedFactor: 1
-    TopLeftQuadrant: 1
-    TopRightQuadrant: 1
-    BottomLeftQuadrant: 1
-    BottomRightQuadrant: 0
-    InnerTargetRadius: 3
-    OuterTargetRadius: 7
-    InnerTargetChance: 0.5
+    DeadZone: 25
+    UrgentAlarm: 0
   AsteroidPrefab: {fileID: 9159378186241741116, guid: 169e2a6e9d7ef0a45a14f588fdd49582,
     type: 3}
   AsteroidDespawnerInternal: {fileID: 0}
   AstroidWarningIndicatorPrefab: {fileID: 3007749065056418431, guid: afa10e1897c9c9e4c87e09151cb217c9,
     type: 3}
   UICanvas: {fileID: 0}
+  AlarmSource: {fileID: 3502867290825634146}
+  NormalAlarmClip: {fileID: 8300000, guid: b834a9794d2a95d41aa08749587a7ad4, type: 3}
+  UrgentAlarmClip: {fileID: 8300000, guid: 5d44baf7397864e4497c02c10567e0dd, type: 3}
   currentLifeCount: 0
   currentStage: 0
+--- !u!82 &3502867290825634146
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7688047801429486919}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b834a9794d2a95d41aa08749587a7ad4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
