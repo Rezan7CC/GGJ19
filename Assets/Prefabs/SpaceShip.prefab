@@ -43,8 +43,8 @@ Rigidbody:
   m_GameObject: {fileID: 1939746874561516202}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 1
+  m_Drag: 0.4
+  m_AngularDrag: 100
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxVelocity: 5
-  rotationSpeed: 3
+  rotationSpeed: 5
   acceleration: 3
 --- !u!114 &9100082158602002521
 MonoBehaviour:
@@ -77,7 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a5e8685acf043d8b6b7e8461a32afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MammothResourceCollectTransform: {fileID: 0}
+  CollectPosition: {x: 0, y: 0, z: 0}
+  CollectRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2302479546639424224
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +147,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 466702899
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d6c992f10f8b4492e86dc3f00d6acbbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -257,17 +258,27 @@ PrefabInstance:
     - target: {fileID: 6209563617111261870, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.020000005
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261870, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.020000005
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6209563617111261870, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.020000001
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261869, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 291648933
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261869, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f9bb270e8120b429087677d582978b, type: 3}
