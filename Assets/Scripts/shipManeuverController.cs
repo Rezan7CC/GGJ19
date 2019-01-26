@@ -14,7 +14,7 @@ public class shipManeuverController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float yAxis = Input.GetAxis("Vertical") * acceleration;
         float xAxis = Input.GetAxis("Horizontal") * rotationSpeed;
