@@ -72,4 +72,9 @@ public class GameModel
 			SetResourceAmount(0);
 		}
 	}
+
+	public float GetNormalizedResourceAmount()
+	{
+		return (float) _resourceAmount / Game.Instance.GameSettings.resourceCapacity;
+	}
 }
