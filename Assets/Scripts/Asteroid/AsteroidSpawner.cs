@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class AsteroidConfig
@@ -53,6 +54,8 @@ public class AsteroidSpawner : MonoBehaviour
 
     public GameObject AsteroidPrefab;
     public AsteroidDespawner AsteroidDespawnerInternal;
+    public GameObject AstroidWarningIndicatorPrefab;
+    public GameObject UICanvas;
 
     public int currentLifeCount = 0;
     public int currentStage = 0;
@@ -146,6 +149,10 @@ public class AsteroidSpawner : MonoBehaviour
         movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
         movement.AsteroidDespawnerInternal = AsteroidDespawnerInternal;
         movement.AsteroidSpawnerInternal = this;
+
+        GameObject warningIndicator = Instantiate<GameObject>(AstroidWarningIndicatorPrefab);
+        warningIndicator.transform.SetParent(UICanvas.transform);
+        movement.AstroidWarningIndicator = warningIndicator.GetComponent<RectTransform>();
         movement.Init();
     }
     
