@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentScores: 280000005000000078000000a0000000c8000000f0000000
   resourceCapacity: 20
-  collectResouceSpeed: 1
+  totalCollectDuration: 3
   maxHealth: 5
   astroidDamage: 1
