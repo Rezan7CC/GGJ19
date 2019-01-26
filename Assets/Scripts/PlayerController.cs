@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour, IResetable
 {
 	public Shield Shield;
 	public shipManeuverController Ship;
+	public MammothViewController MammothViewController;
 
 	private TriggerCollisionType _currentTriggerCollisionType;
 
@@ -40,6 +41,11 @@ public class PlayerController : MonoBehaviour, IResetable
 		{
 			Game.Instance.GameModel.DeliverResources();
 		}
+
+		if (controlmode == ControlMode.ResourceGathering)
+		{
+			MammothViewController.DockToResourcePlanet();
+		}
 	}
 
 	private void OnTriggerCollisionExit(TriggerCollisionType type)
@@ -54,7 +60,6 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	public void Reset()
 	{
-		Debug.Log("Set to shipmovement");
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
@@ -68,12 +73,10 @@ public class PlayerController : MonoBehaviour, IResetable
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Debug.Log("_currentTriggerCollisionType: " + _currentTriggerCollisionType);
 			if (_currentTriggerCollisionType != TriggerCollisionType.None &&
 			    Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
 			{
 				var controlMode = _collisionTypeMapping[_currentTriggerCollisionType];
-				Debug.Log("Will set to control Mode: " + controlMode);
 				Game.Instance.GameModel.SetControlMode(controlMode);
 			}
 			else if (Game.Instance.GameModel.GetControlMode() != ControlMode.ShipMovement)

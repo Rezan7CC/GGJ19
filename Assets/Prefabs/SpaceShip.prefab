@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1939746874561516207}
   - component: {fileID: 1939746874561516200}
   - component: {fileID: 1939746874561516201}
+  - component: {fileID: 9100082158602002521}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Player
@@ -64,6 +65,19 @@ MonoBehaviour:
   maxVelocity: 5
   rotationSpeed: 3
   acceleration: 3
+--- !u!114 &9100082158602002521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939746874561516202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a5e8685acf043d8b6b7e8461a32afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MammothResourceCollectTransform: {fileID: 0}
 --- !u!1 &2302479546639424224
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +92,7 @@ GameObject:
   - component: {fileID: 3572659329496295918}
   m_Layer: 0
   m_Name: Curly
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
