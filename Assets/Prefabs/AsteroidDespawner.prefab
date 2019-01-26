@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9038026825529166769}
   - component: {fileID: 9038026825529166766}
+  - component: {fileID: 678972665176802786}
   m_Layer: 0
   m_Name: AsteroidDespawner
   m_TagString: Untagged
@@ -39,8 +40,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9038026825529166767}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 25, y: 25, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &678972665176802786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9038026825529166767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d9fca668b2cf241bd113c78910f78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  boxCollider: {fileID: 9038026825529166766}

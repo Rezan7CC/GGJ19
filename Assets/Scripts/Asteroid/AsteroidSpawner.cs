@@ -52,7 +52,7 @@ public class AsteroidSpawner : MonoBehaviour
     private float spawnTimer = 0.0f;
 
     public GameObject AsteroidPrefab;
-    public BoxCollider AsteroidDespawner;
+    public AsteroidDespawner AsteroidDespawnerInternal;
 
     public int currentLifeCount = 0;
     public int currentStage = 0;
@@ -144,8 +144,9 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         movement.Direction = (targetPosition - asteroidInstance.transform.position).normalized;
-        movement.AsteroidDespawner = AsteroidDespawner;
+        movement.AsteroidDespawnerInternal = AsteroidDespawnerInternal;
         movement.AsteroidSpawnerInternal = this;
+        movement.Init();
     }
     
     private void OnHomeSegmentsChanged(int value)
