@@ -1,5 +1,6 @@
 public enum TriggerCollisionType
 {
-	HomeStation = 0,
-	ResourcePlanet = 1
+	None,
+	HomeStation,
+	ResourcePlanet
 }
