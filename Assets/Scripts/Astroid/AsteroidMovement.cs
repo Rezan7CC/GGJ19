@@ -11,15 +11,24 @@ public class AsteroidMovement : MonoBehaviour
     public Vector3 Direction;
 
     [HideInInspector]
-    public BoxCollider AsteroidDespawner;
+    public AsteroidDespawner AsteroidDespawnerInternal;
 
     [HideInInspector]
     public AsteroidSpawner AsteroidSpawnerInternal;
 
+    private BoxCollider asteroidDespawnerBox;
+    private Transform asteroidDespawnerTransform;
+    private bool wasInView = false;
+
     // Start is called before the first frame update
     void Start()
     {
-      
+    }
+
+    public void Init()
+    {
+        asteroidDespawnerBox = AsteroidDespawnerInternal.boxCollider;
+        asteroidDespawnerTransform = AsteroidDespawnerInternal.transform;
     }
 
     // Update is called once per frame
@@ -27,21 +36,32 @@ public class AsteroidMovement : MonoBehaviour
     {
         transform.position += Direction * Speed * Time.deltaTime;
 
-        if(transform.position.x > AsteroidDespawner.transform.position.x + AsteroidDespawner.size.x * 0.5)
+        if(transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
+            && transform.position.x > asteroidDespawnerTransform.position.x - asteroidDespawnerBox.size.x * 0.5
+            && transform.position.y < asteroidDespawnerTransform.position.y + asteroidDespawnerBox.size.y * 0.5
+            && transform.position.y > asteroidDespawnerTransform.position.y - asteroidDespawnerBox.size.y * 0.5)
         {
-            DestroyAsteroid();
+            wasInView = true;
         }
-        if (transform.position.x < AsteroidDespawner.transform.position.x - AsteroidDespawner.size.x * 0.5)
+
+        if(wasInView)
         {
-            DestroyAsteroid();
-        }
-        if (transform.position.y > AsteroidDespawner.transform.position.y + AsteroidDespawner.size.y * 0.5)
-        {
-            DestroyAsteroid();
-        }
-        if (transform.position.y < AsteroidDespawner.transform.position.y - AsteroidDespawner.size.y * 0.5)
-        {
-            DestroyAsteroid();
+            if (transform.position.x > asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5)
+            {
+                DestroyAsteroid();
+            }
+            if (transform.position.x < asteroidDespawnerTransform.position.x - asteroidDespawnerBox.size.x * 0.5)
+            {
+                DestroyAsteroid();
+            }
+            if (transform.position.y > asteroidDespawnerTransform.position.y + asteroidDespawnerBox.size.y * 0.5)
+            {
+                DestroyAsteroid();
+            }
+            if (transform.position.y < asteroidDespawnerTransform.position.y - asteroidDespawnerBox.size.y * 0.5)
+            {
+                DestroyAsteroid();
+            }
         }
     }
 
