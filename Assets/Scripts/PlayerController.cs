@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour, IResetable
     public AudioSource DrillingAudioSource;
 
     private TriggerCollisionType _currentTriggerCollisionType;
+	private float collectFrequency;
+	private float currentCollectFrequency;
 
 	private readonly Dictionary<ControlMode, Action> _controlsMapping = new Dictionary<ControlMode, Action>();
 	private readonly Dictionary<TriggerCollisionType, ControlMode> _collisionTypeMapping = new Dictionary<TriggerCollisionType, ControlMode>()
@@ -34,6 +36,9 @@ public class PlayerController : MonoBehaviour, IResetable
 		Game.Instance.GameSignals.OnTriggerCollisionExit += OnTriggerCollisionExit;
 
 		Game.Instance.GameModel.OnControlModeChanged += OnControlModeChanged;
+
+		var gameSettings = Game.Instance.GameSettings;
+		collectFrequency = gameSettings.totalCollectDuration / gameSettings.resourceCapacity;
 	}
 
 	private void OnControlModeChanged(ControlMode controlmode)
@@ -87,11 +92,21 @@ public class PlayerController : MonoBehaviour, IResetable
 	private void Update()
 	{
 		HandleControlMode();
+		var controlMode = Game.Instance.GameModel.GetControlMode();
+		if (controlMode == ControlMode.ResourceGathering)
+		{
+			_controlsMapping[controlMode]();
+		}
 	}
 
 	private void FixedUpdate()
 	{
-		_controlsMapping[Game.Instance.GameModel.GetControlMode()]();
+		var controlMode = Game.Instance.GameModel.GetControlMode();
+		if (controlMode == ControlMode.ShieldMovement ||
+		    controlMode == ControlMode.ShipMovement)
+		{
+			_controlsMapping[controlMode]();
+		}
 	}
 
 	private void HandleControlMode()
@@ -122,9 +137,14 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void HandleResourceGathering()
 	{
-		if (Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKey(KeyCode.F))
 		{
-			Game.Instance.GameModel.IncreaseResourceAmount(Game.Instance.GameSettings.collectResouceSpeed);
+			currentCollectFrequency -= Time.deltaTime;
+			if (currentCollectFrequency <= 0)
+			{
+				currentCollectFrequency = collectFrequency;
+				Game.Instance.GameModel.IncreaseResourceAmount(1);
+			}
 		}
 	}
 }
