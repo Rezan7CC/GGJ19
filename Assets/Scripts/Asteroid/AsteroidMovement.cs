@@ -31,6 +31,7 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     private BoxCollider asteroidDespawnerBox;
     private Transform asteroidDespawnerTransform;
     private bool wasInView = false;
+    private bool didDamage = false;
 
     private Camera mainCamera;
 
@@ -117,8 +118,9 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         {
             DestroyAsteroid(0.05f, 0.33f);
             
-            if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
+            if (Game.Instance.GameSignals.OnAstroidHitSegment != null && !didDamage)
             {
+                didDamage = true;
                 Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
             }
         }
