@@ -16,6 +16,7 @@ ModelImporter:
     100020: Station_Segment_02__Empty
     100022: Mammoth_Test
     100024: group1
+    100026: Station_Segment_01_Full7
     400000: pPipe10
     400002: pPipe11
     400004: pPipe12
@@ -29,6 +30,7 @@ ModelImporter:
     400020: Station_Segment_02__Empty
     400022: Mammoth_Test
     400024: group1
+    400026: Station_Segment_01_Full7
     2100000: lambert1
     2100002: lambert2
     2300000: pPipe10
@@ -43,6 +45,7 @@ ModelImporter:
     2300018: Station_Segment_01_Full
     2300020: Station_Segment_02__Empty
     2300022: Mammoth_Test
+    2300024: Station_Segment_01_Full7
     3300000: pPipe10
     3300002: pPipe11
     3300004: pPipe12
@@ -55,6 +58,7 @@ ModelImporter:
     3300018: Station_Segment_01_Full
     3300020: Station_Segment_02__Empty
     3300022: Mammoth_Test
+    3300024: Station_Segment_01_Full7
     4300000: Station_Segment_01
     4300002: pPipe7
     4300004: pPipe8
@@ -66,6 +70,7 @@ ModelImporter:
     4300016: Station_Segment_01_Full
     4300018: Station_Segment_02__Empty
     4300020: Mammoth_Test
+    4300022: Station_Segment_01_Full7
   externalObjects: {}
   materials:
     importMaterials: 0

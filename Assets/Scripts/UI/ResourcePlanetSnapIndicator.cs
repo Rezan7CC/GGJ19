@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 
 public class ResourcePlanetSnapIndicator : MonoBehaviour, IResetable
@@ -28,16 +29,16 @@ public class ResourcePlanetSnapIndicator : MonoBehaviour, IResetable
 
 	private void Show()
 	{
-		gameObject.SetActive(true);
+		gameObject.transform.DOScale(1, 0.15f).SetEase(Ease.OutBack);
 	}
 
-	private void Hide()
+	private void Hide(float duration = 0.15f)
 	{
-		gameObject.SetActive(false);
+		gameObject.transform.DOScale(0, duration);
 	}
 
 	public void Reset()
 	{
-		Hide();
+		Hide(0);
 	}
 }

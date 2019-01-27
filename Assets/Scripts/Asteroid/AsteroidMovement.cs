@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AsteroidMovement : MonoBehaviour, IResetable
 {
+    public float MinRotationSpeed = 0.0f;
+    public float MaxRotationSpeed = 5.0f;
     public float OffsetBufferPixel = 10.0f;
 
     [HideInInspector]
@@ -37,6 +40,8 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Rigidbody>().AddTorque(Random.Range(MinRotationSpeed, MaxRotationSpeed),
+           Random.Range(MinRotationSpeed, MaxRotationSpeed), Random.Range(MinRotationSpeed, MaxRotationSpeed), ForceMode.VelocityChange);
     }
 
     public void Init()
@@ -85,23 +90,29 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         }
     }
 
-    void DestroyAsteroid()
+    void DestroyAsteroid(float positionShake = 0, float rotationShake = 0)
     {
         --AsteroidSpawnerInternal.currentLifeCount;
         Destroy(gameObject);
+        if ((positionShake > 0 || rotationShake > 0) && Camera.main != null)
+        {
+            DOTween.Sequence()
+                .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
+                .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag.Equals(Tags.Shield))
         {
-            DestroyAsteroid();
+            DestroyAsteroid(0.03f, 0.17f);
         }
 
         if (other.gameObject.tag.Equals(Tags.Segment))
         {
-            DestroyAsteroid();
-
+            DestroyAsteroid(0.05f, 0.33f);
+            
             if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
             {
                 Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
@@ -135,22 +146,22 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         if (Mathf.Abs(angleDeg) < 45)
         {
             AstroidWarningIndicator.position = new Vector3(ClampPixelWidth(positionScreenSpace.x), mainCamera.scaledPixelHeight - offset, 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 0);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (Mathf.Abs(angleDeg) > 135)
         {
             AstroidWarningIndicator.position = new Vector3(ClampPixelWidth(positionScreenSpace.x), offset, 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -180);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -180);
         }
         else if (angleDeg > 0)
         {
             AstroidWarningIndicator.position = new Vector3(mainCamera.scaledPixelWidth - offset, ClampPixelHeight(positionScreenSpace.y), 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -90);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, -90);
         }
         else
         {
             AstroidWarningIndicator.position = new Vector3(offset, ClampPixelHeight(positionScreenSpace.y), 0);
-            AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 90);
+            //AstroidWarningIndicator.rotation = Quaternion.Euler(0, 0, 90);
         }
     }
 
