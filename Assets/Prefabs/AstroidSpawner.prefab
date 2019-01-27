@@ -93,8 +93,8 @@ MonoBehaviour:
     InnerTargetChance: 0.35
     DeadZone: 40
     UrgentAlarm: 0
-  - MinFrequency: 3
-    MaxFrequency: 6
+  - MinFrequency: 4
+    MaxFrequency: 7
     MaximumLifeCount: 4
     MinSpeed: 0.8
     MaxSpeed: 1.7
@@ -109,7 +109,7 @@ MonoBehaviour:
     InnerTargetChance: 0.4
     DeadZone: 30
     UrgentAlarm: 0
-  - MinFrequency: 2
+  - MinFrequency: 3
     MaxFrequency: 7
     MaximumLifeCount: 4
     MinSpeed: 1
@@ -125,9 +125,9 @@ MonoBehaviour:
     InnerTargetChance: 0.45
     DeadZone: 25
     UrgentAlarm: 0
-  - MinFrequency: 1.8
+  - MinFrequency: 2
     MaxFrequency: 6
-    MaximumLifeCount: 5
+    MaximumLifeCount: 4
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
@@ -158,7 +158,7 @@ MonoBehaviour:
     DeadZone: 25
     UrgentAlarm: 0
   MinScale: 0.5
-  MaxScale: 2
+  MaxScale: 1.8
   AsteroidPrefab: {fileID: 9159378186241741116, guid: 169e2a6e9d7ef0a45a14f588fdd49582,
     type: 3}
   AsteroidDespawnerInternal: {fileID: 0}
