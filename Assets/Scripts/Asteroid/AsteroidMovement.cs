@@ -90,30 +90,28 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         }
     }
 
-    void DestroyAsteroid()
+    void DestroyAsteroid(float positionShake = 0, float rotationShake = 0)
     {
         --AsteroidSpawnerInternal.currentLifeCount;
         Destroy(gameObject);
+        if ((positionShake > 0 || rotationShake > 0) && Camera.main != null)
+        {
+            DOTween.Sequence()
+                .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
+                .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag.Equals(Tags.Shield))
         {
-            DestroyAsteroid();
+            DestroyAsteroid(0.03f, 0.17f);
         }
 
         if (other.gameObject.tag.Equals(Tags.Segment))
         {
-            DestroyAsteroid();
-            if (Camera.main != null)
-            {
-                DOTween.Sequence()
-                        .Insert(0, Camera.main.transform.DOShakePosition(0.33f, 0.05f))
-                        .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, 0.33f))
-                    
-                ;
-            }
+            DestroyAsteroid(0.05f, 0.33f);
             
             if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
             {

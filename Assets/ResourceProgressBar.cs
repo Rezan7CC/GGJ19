@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ResourceProgressBar : MonoBehaviour
@@ -16,6 +17,6 @@ public class ResourceProgressBar : MonoBehaviour
 
     private void OnScoreChanged(int score)
     {
-        ProgressBar.fillAmount = (float) score / _maxSegmentScore;
+        ProgressBar.DOFillAmount((float) score / _maxSegmentScore, 0.1f);
     }
 }

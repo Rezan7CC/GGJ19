@@ -18,7 +18,7 @@ public class ResourceBar : MonoBehaviour, IResetable
     private void OnResourceAmountChanged(int amount)
     {
         float oldFillAmount = resourceImage.fillAmount;
-        resourceImage.fillAmount = Game.Instance.GameModel.GetNormalizedResourceAmount();
+        resourceImage.DOFillAmount(Game.Instance.GameModel.GetNormalizedResourceAmount(), 0.1f);
         resourceImage.color = resourceImage.fillAmount == 1 ? fullFillColor : normalFillColor;
         if (oldFillAmount < 1 && resourceImage.fillAmount == 1)
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -13,6 +14,6 @@ public class HealthBar : MonoBehaviour
 
     private void OnHealthChanged(int health)
     {
-        healthBarImage.fillAmount = Game.Instance.GameModel.GetNormalizedHealth();
+        healthBarImage.DOFillAmount(Game.Instance.GameModel.GetNormalizedHealth(), 0.1f);
     }
 }
