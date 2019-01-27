@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 
 public class MammothViewController : MonoBehaviour, IResetable
@@ -17,8 +18,10 @@ public class MammothViewController : MonoBehaviour, IResetable
 
     public void DockToResourcePlanet()
     {
-        transform.position = CollectPosition;
-        transform.eulerAngles = CollectRotation;
+        DOTween.Sequence()
+            .Insert(0, transform.DOMove(CollectPosition, 0.2f))
+            .Insert(0, transform.DORotate(CollectRotation, 0.2f));
+
     }
 
     public void Reset()
@@ -27,8 +30,10 @@ public class MammothViewController : MonoBehaviour, IResetable
         transform.rotation = originRotation;
     }
 
-    public void DockToHomebase()
+    public void DockToHomebase(Vector3 transformRotation)
     {
-        transform.position = Vector3.zero;
+        DOTween.Sequence()
+            .Insert(0, transform.DOMove(Vector3.zero, 0.2f))
+            .Insert(0, transform.DORotate(transformRotation, 0.2f));
     }
 }

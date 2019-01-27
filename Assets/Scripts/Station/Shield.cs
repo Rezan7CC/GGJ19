@@ -6,6 +6,7 @@ public class Shield : MonoBehaviour, IResetable
     public GameObject ShieldObject;
     public Transform Center;
     public float Speed;
+    public GameObject Mammoth;
 
     private Vector3 originPosition;
     private Quaternion originRotation;
@@ -18,8 +19,10 @@ public class Shield : MonoBehaviour, IResetable
 
     // Update is called once per frame
     public void HandleMovement()
-    {
+    {        
         ShieldObject.transform.RotateAround(Center.position, new Vector3(0, 0, 1), Input.GetAxis("Horizontal") * -Speed);
+        Mammoth.transform.RotateAround(Center.position, new Vector3(0, 0, 1), Input.GetAxis("Horizontal") * -Speed);
+        
     }
 
     public void Reset()
