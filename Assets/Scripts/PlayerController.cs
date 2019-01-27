@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour, IResetable
         if (controlmode == ControlMode.ShipMovement)
         {
             ShipRigidbody.isKinematic = false;
+	        Ship.ThrustForward(15);
             PlayerAudioSource.PlayOneShot(LaunchAudioClip);
         }
 
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour, IResetable
         if (controlmode == ControlMode.ShieldMovement)
         {
             PlayerAudioSource.PlayOneShot(LandAudioClip);
-	        MammothViewController.DockToHomebase();
+	        MammothViewController.DockToHomebase(Shield.ShieldObject.transform.rotation.eulerAngles);
             Game.Instance.GameModel.DeliverResources();
 		}
 

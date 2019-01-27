@@ -47,7 +47,7 @@ public class shipManeuverController : MonoBehaviour, IResetable
         rb.velocity = new Vector2(x, y);
     }
 
-    private void ThrustForward(float amount)
+    public void ThrustForward(float amount)
     {
         Vector2 force = transform.up * amount;
         rb.AddForce(force);
