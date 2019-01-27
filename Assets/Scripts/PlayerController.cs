@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IResetable
 {
+	private int Mine = Animator.StringToHash("Mine");
+	private int Land = Animator.StringToHash("Land");
+	private int Launch = Animator.StringToHash("Launch");
+	
 	public Shield Shield;
 	public shipManeuverController Ship;
 	public MammothViewController MammothViewController;
+	public Animator MammothAnimator;
     public Rigidbody ShipRigidbody;
 
     public AudioSource PlayerAudioSource;
@@ -138,6 +143,11 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void HandleResourceGathering()
 	{
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			MammothAnimator.SetBool(Mine, true);
+		}
+		
 		if (Input.GetKey(KeyCode.F))
 		{
 			currentCollectFrequency -= Time.deltaTime;
@@ -146,6 +156,11 @@ public class PlayerController : MonoBehaviour, IResetable
 				currentCollectFrequency = collectFrequency;
 				Game.Instance.GameModel.IncreaseResourceAmount(1);
 			}
+		}
+		
+		if (Input.GetKeyUp(KeyCode.F))
+		{
+			MammothAnimator.SetBool(Mine, false);
 		}
 	}
 }
