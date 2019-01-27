@@ -36,6 +36,7 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     private Transform asteroidDespawnerTransform;
     private bool wasInView = false;
     private bool didDamage = false;
+    private bool doScreenShake = true;
 
     private Camera mainCamera;
 
@@ -47,9 +48,16 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Start is called before the first frame update
     void Start()
     {
+        Game.Instance.GameSignals.OnWin += OnWin;
+        
         GetComponent<Rigidbody>().AddTorque(Random.Range(MinRotationSpeed, MaxRotationSpeed),
            Random.Range(MinRotationSpeed, MaxRotationSpeed), Random.Range(MinRotationSpeed, MaxRotationSpeed), ForceMode.VelocityChange);
         trail.widthMultiplier = transform.localScale.x;
+    }
+
+    private void OnWin()
+    {
+        doScreenShake = false;
     }
 
     public void Init()
@@ -108,9 +116,13 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         {
             GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<ParticleSystem>().Play();
-            DOTween.Sequence()
-                .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
-                .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+
+            if (doScreenShake)
+            {
+                DOTween.Sequence()
+                    .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
+                    .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+            }
         }
         Destroy(gameObject);
     }

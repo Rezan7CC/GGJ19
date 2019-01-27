@@ -77,10 +77,7 @@ public class DynamicButtonIndicator : MonoBehaviour, IResetable
 
     private void Hide(GameObject indicatorObject, float duration = 0.15f)
     {
-        if (indicatorObject.transform.localScale != Vector3.zero)
-        {
-            indicatorObject.transform.DOScale(0, duration);
-        }
+        indicatorObject.transform.DOScale(0, duration);
     }
 
     public void Reset()
