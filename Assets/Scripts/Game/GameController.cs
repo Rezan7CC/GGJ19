@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour, IResetable
 
     private void OnGameOver()
     {
-        SceneManager.LoadScene(0);
+
     }
 
     private void OnWin()
