@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4508223, g: 0.5007409, b: 0.574695, a: 1}
+  m_IndirectSpecularColor: {r: 0.45082223, g: 0.5007409, b: 0.57469463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1553,6 +1553,7 @@ GameObject:
   - component: {fileID: 1533441161}
   - component: {fileID: 1533441163}
   - component: {fileID: 1533441162}
+  - component: {fileID: 1533441164}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1577,7 +1578,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 1500, y: 1500}
+  m_SizeDelta: {x: 1300, y: 1300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533441162
 MonoBehaviour:
@@ -1616,6 +1617,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533441160}
   m_CullTransparentMesh: 0
+--- !u!114 &1533441164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533441160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fe4871ca30440b481f105bb7ab1a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.398241
+      outSlope: 5.398241
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.27016994
+    - serializedVersion: 3
+      time: 0.27499512
+      value: 0.99143326
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.72998047
+      value: -1.0077
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 6.4586
+      outSlope: 6.4586
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.31419015
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  yOffset: 0
+  yScale: 1.25
+  xScale: 1.25
+  animationDuration: 3
+  delay: 0
 --- !u!1 &1558115730
 GameObject:
   m_ObjectHideFlags: 0

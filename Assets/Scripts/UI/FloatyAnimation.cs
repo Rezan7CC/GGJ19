@@ -5,7 +5,8 @@ public class FloatyAnimation : MonoBehaviour
 {
     public AnimationCurve animationCurve;
     public int yOffset;
-    public float yScale;
+    public float yScale = 1;
+    public float xScale = 1;
     public float animationDuration;
     public float delay;
     
@@ -15,6 +16,7 @@ public class FloatyAnimation : MonoBehaviour
         DOTween.Sequence()
             .Insert(0, transform.DOMoveY(transform.position.y + yOffset, animationDuration).SetEase(animationCurve))
             .Insert(0, transform.DOScaleY(yScale, animationDuration).SetEase(animationCurve))
+            .Insert(0, transform.DOScaleX(xScale, animationDuration).SetEase(animationCurve))
             .SetLoops(-1)
             .SetDelay(delay);
     }
