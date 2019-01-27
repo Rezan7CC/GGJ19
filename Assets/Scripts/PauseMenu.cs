@@ -1,21 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    private bool disablePause;
+    
     public GameObject PM;
     private void Start()
     {
+        Game.Instance.GameSignals.OnWin += OnWin;
         PM.SetActive(false);
     }
+
+    private void OnWin()
+    {
+        disablePause = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            if (!PM.activeSelf)
+            if (!PM.activeSelf && !disablePause)
             {
                 Game.Instance.GameModel.InGameTimeScale = 0;
                 PM.SetActive(true);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinScreen : MonoBehaviour
 {
@@ -14,5 +15,13 @@ public class WinScreen : MonoBehaviour
     private void OnWin()
     {
         gameObject.SetActive(true);
+        StartCoroutine(WinSequence());
+    }
+
+    IEnumerator WinSequence()
+    {
+        yield return new WaitForSeconds(20.0f);
+        SceneManager.LoadScene(0);
+        yield return new WaitForEndOfFrame();
     }
 }

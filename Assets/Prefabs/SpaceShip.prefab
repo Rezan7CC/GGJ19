@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1939746874561516201}
   - component: {fileID: 9100082158602002521}
   - component: {fileID: 1994517995213849506}
+  - component: {fileID: 1939746874764620182}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Player
@@ -79,8 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a5e8685acf043d8b6b7e8461a32afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectPosition: {x: 5.86, y: -1.84, z: 0}
-  CollectRotation: {x: 0, y: 0, z: -45.301}
+  collectTransform: {fileID: 0}
+  startTransform: {fileID: 0}
+  dockPlanetEffectPrefab: {fileID: 2728084352117420793, guid: faa89bd01f9cfb24785781cb8aed5dac,
+    type: 3}
 --- !u!82 &1994517995213849506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -177,6 +180,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1939746874764620182
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939746874561516202}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba50defca2ded479c8237875d1d854f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2302479546639424224
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 2302479546639424224}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 8456443826064252216}
   m_Father: {fileID: 1939746874561516207}
@@ -248,7 +270,7 @@ SpriteRenderer:
   m_SortingLayerID: 466702899
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6c992f10f8b4492e86dc3f00d6acbbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f031a7026629094a95a1e89731c9b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,8 +306,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4050001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.12
+  m_Center: {x: 0.09, y: -0.12, z: 0}
 --- !u!1001 &2555687161387130774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,6 +375,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6209563617111261859, guid: 29f9bb270e8120b429087677d582978b,
+        type: 3}
+      propertyPath: thruster
+      value: 
+      objectReference: {fileID: 8456443826064252218}
     - target: {fileID: 6209563617111261869, guid: 29f9bb270e8120b429087677d582978b,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -363,11 +390,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6209563617111261859, guid: 29f9bb270e8120b429087677d582978b,
-        type: 3}
-      propertyPath: thruster
-      value: 
-      objectReference: {fileID: 8456443826064252218}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f9bb270e8120b429087677d582978b, type: 3}
 --- !u!4 &8456443826064252216 stripped

@@ -10,6 +10,10 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     public float MinRotationSpeed = 0.0f;
     public float MaxRotationSpeed = 5.0f;
     public float OffsetBufferPixel = 10.0f;
+    float Lifetime = 0.0f;
+    float TrailLength = 0.0f;
+
+    public TrailRenderer trail;
 
     public GameObject asteroidExplosion;
 
@@ -31,6 +35,8 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     private BoxCollider asteroidDespawnerBox;
     private Transform asteroidDespawnerTransform;
     private bool wasInView = false;
+    private bool didDamage = false;
+    private bool doScreenShake = true;
 
     private Camera mainCamera;
 
@@ -42,8 +48,16 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Start is called before the first frame update
     void Start()
     {
+        Game.Instance.GameSignals.OnWin += OnWin;
+        
         GetComponent<Rigidbody>().AddTorque(Random.Range(MinRotationSpeed, MaxRotationSpeed),
            Random.Range(MinRotationSpeed, MaxRotationSpeed), Random.Range(MinRotationSpeed, MaxRotationSpeed), ForceMode.VelocityChange);
+        trail.widthMultiplier = transform.localScale.x;
+    }
+
+    private void OnWin()
+    {
+        doScreenShake = false;
     }
 
     public void Init()
@@ -56,9 +70,12 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Update is called once per frame
     void Update()
     {
-         transform.position += Direction * Speed * Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
+        transform.position += Direction * Speed * Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
+        Lifetime += Time.deltaTime;
+        TrailLength = Mathf.Sin(Lifetime) * 0.5f;
+        trail.time = TrailLength + trail.widthMultiplier * 1.7f;
 
-        if(!wasInView && transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
+        if (!wasInView && transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
             && transform.position.x > asteroidDespawnerTransform.position.x - asteroidDespawnerBox.size.x * 0.5
             && transform.position.y < asteroidDespawnerTransform.position.y + asteroidDespawnerBox.size.y * 0.5
             && transform.position.y > asteroidDespawnerTransform.position.y - asteroidDespawnerBox.size.y * 0.5)
@@ -99,9 +116,13 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         {
             GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<ParticleSystem>().Play();
-            DOTween.Sequence()
-                .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
-                .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+
+            if (doScreenShake)
+            {
+                DOTween.Sequence()
+                    .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
+                    .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
+            }
         }
         Destroy(gameObject);
     }
@@ -117,8 +138,9 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         {
             DestroyAsteroid(0.05f, 0.33f);
             
-            if (Game.Instance.GameSignals.OnAstroidHitSegment != null)
+            if (Game.Instance.GameSignals.OnAstroidHitSegment != null && !didDamage)
             {
+                didDamage = true;
                 Game.Instance.GameSignals.OnAstroidHitSegment(other.gameObject);
             }
         }

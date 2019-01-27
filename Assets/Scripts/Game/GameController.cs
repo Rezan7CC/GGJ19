@@ -27,12 +27,12 @@ public class GameController : MonoBehaviour, IResetable
 
     private void OnGameOver()
     {
-        SceneManager.LoadScene(0);
+
     }
 
     private void OnWin()
     {
-        RestartGame();
+        
     }
 
     private void OnHealthChanged(int health)

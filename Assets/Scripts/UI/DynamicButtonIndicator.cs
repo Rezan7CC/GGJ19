@@ -18,7 +18,7 @@ public class DynamicButtonIndicator : MonoBehaviour, IResetable
         Game.Instance.GameModel.OnControlModeChanged += OnControlModeChanged;
     }
 
-    private void OnControlModeChanged(ControlMode controlmode)
+    private void OnControlModeChanged(ControlMode controlmode, ControlMode previousMode)
     {
         if (controlmode == ControlMode.ResourceGathering)
         {
@@ -34,6 +34,15 @@ public class DynamicButtonIndicator : MonoBehaviour, IResetable
         {
             Hide(HomeBaseControlsIndicator);
             Hide(ResourcePlanetControlsIndicator);
+
+            if (previousMode == ControlMode.ResourceGathering)
+            {
+                Show(ResourcePlanetSnapIndicator);
+            }
+            else if (previousMode == ControlMode.ShieldMovement)
+            {
+                Show(HomeBaseSnapIndicator);
+            }
         }
     }
 
@@ -68,10 +77,7 @@ public class DynamicButtonIndicator : MonoBehaviour, IResetable
 
     private void Hide(GameObject indicatorObject, float duration = 0.15f)
     {
-        if (indicatorObject.transform.localScale != Vector3.zero)
-        {
-            indicatorObject.transform.DOScale(0, duration);
-        }
+        indicatorObject.transform.DOScale(0, duration);
     }
 
     public void Reset()

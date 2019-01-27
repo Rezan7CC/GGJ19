@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraBehaviour : MonoBehaviour
 {
     public float ZoomSize = 4.5f;
+    public float XLandingOffset = 0.2f;
     private float originalSize;
 
     // Start is called before the first frame update
@@ -14,7 +15,7 @@ public class CameraBehaviour : MonoBehaviour
         Game.Instance.GameModel.OnControlModeChanged += OnControlModeChange;
     }
 
-    private void OnControlModeChange(ControlMode controlmode)
+    private void OnControlModeChange(ControlMode controlmode, ControlMode previousMode)
     {
         if (controlmode == ControlMode.ShieldMovement)
         {
@@ -31,7 +32,7 @@ public class CameraBehaviour : MonoBehaviour
         {
             DOTween.Sequence()
                 .Insert(0, Camera.main.DOOrthoSize(ZoomSize, 0.25f))
-                .Insert(0, transform.DOMoveX(0.2f, 0.25f));
+                .Insert(0, transform.DOMoveX(XLandingOffset, 0.25f));
         }
     }
 }
