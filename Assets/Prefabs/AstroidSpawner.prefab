@@ -51,7 +51,7 @@ MonoBehaviour:
     MinSpeed: 0.5
     MaxSpeed: 1.2
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
     MinSpeed: 0.8
     MaxSpeed: 1.8
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
     MinSpeed: 0.5
     MaxSpeed: 1.5
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -115,7 +115,7 @@ MonoBehaviour:
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -131,7 +131,7 @@ MonoBehaviour:
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
@@ -147,7 +147,7 @@ MonoBehaviour:
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
-    DistanceSpeedFactor: 1
+    DistanceSpeedFactor: 0.5
     TopLeftQuadrant: 1
     TopRightQuadrant: 1
     BottomLeftQuadrant: 1
