@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour, IResetable
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
-	private void OnControlModeChanged(ControlMode controlmode)
+	private void OnControlModeChanged(ControlMode controlmode, ControlMode previousMode)
 	{
 		MammothAnimator.SetBool(Soldier, controlmode == ControlMode.ShieldMovement);
 
