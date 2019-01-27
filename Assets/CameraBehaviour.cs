@@ -20,9 +20,18 @@ public class CameraBehaviour : MonoBehaviour
         {
             Camera.main.DOOrthoSize(ZoomSize, 0.25f);
         }
-        else
+        else if (controlmode == ControlMode.ShipMovement)
         {
-            Camera.main.DOOrthoSize(originalSize, 0.25f);
+            DOTween.Sequence()
+                .Insert(0, Camera.main.DOOrthoSize(originalSize, 0.25f))
+                .Insert(0, transform.DOMoveX(0f, 0.25f));
+            ;
+        }
+        else if (controlmode == ControlMode.ResourceGathering)
+        {
+            DOTween.Sequence()
+                .Insert(0, Camera.main.DOOrthoSize(ZoomSize, 0.25f))
+                .Insert(0, transform.DOMoveX(0.2f, 0.25f));
         }
     }
 }
