@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void OnControlModeChanged(ControlMode controlmode)
 	{
+		MammothAnimator.SetBool(Soldier, controlmode == ControlMode.ShieldMovement);
+
         if (controlmode == ControlMode.ShipMovement)
         {
             ShipRigidbody.isKinematic = false;
@@ -136,13 +138,18 @@ public class PlayerController : MonoBehaviour, IResetable
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && _currentTriggerCollisionType != TriggerCollisionType.None)
 		{
+			// will land
 			if (Game.Instance.GameModel.GetControlMode() == ControlMode.ShipMovement)
 			{
+				MammothAnimator.SetTrigger(Launch);
 				var controlMode = _collisionTypeMapping[_currentTriggerCollisionType];
 				Game.Instance.GameModel.SetControlMode(controlMode);
 			}
+			
+			// will launch
 			else if (Game.Instance.GameModel.GetControlMode() != ControlMode.ShipMovement)
 			{
+				MammothAnimator.SetTrigger(Land);
 				Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 			}
 		}
