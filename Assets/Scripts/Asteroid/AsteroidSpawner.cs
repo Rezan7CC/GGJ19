@@ -54,16 +54,29 @@ public class AsteroidSpawner : MonoBehaviour
     public int currentLifeCount = 0;
     public int currentStage = 0;
 
+    public bool isSpawning = true;
+
     // Start is called before the first frame update
     void Start()
     {
         currentLifeCount = 0;
         Game.Instance.GameSignals.OnHomeSegmentCountChanged += OnHomeSegmentsChanged;
+        Game.Instance.GameSignals.OnWin += OnWin;
+    }
+
+    private void OnWin()
+    {
+        isSpawning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isSpawning)
+        {
+            return;
+        }
+        
         spawnTimer -= Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
         if (spawnTimer <= 0.0f)
         {

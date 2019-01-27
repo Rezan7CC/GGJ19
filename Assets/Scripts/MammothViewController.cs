@@ -14,6 +14,14 @@ public class MammothViewController : MonoBehaviour, IResetable
     {
         originPosition = transform.position;
         originRotation = transform.rotation;
+
+        Game.Instance.GameSignals.OnWin += OnWin;
+    }
+
+    private void OnWin()
+    {
+        transform.position = originPosition;
+        transform.rotation = originRotation;
     }
 
     public void DockToResourcePlanet()

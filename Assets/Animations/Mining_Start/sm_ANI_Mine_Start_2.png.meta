@@ -1,24 +1,21 @@
 fileFormatVersion: 2
-guid: 29fcda9cb290d744baacbdf43ff29b14
+guid: 94efc419af5c212409dd57fda61621f7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sm_ANI_Launch_1_0
-    21300002: sm_ANI_Launch_1_1
-    21300004: sm_ANI_Launch_1_2
-    21300006: sm_ANI_Launch_1_3
-    21300008: sm_ANI_Launch_1_4
-    21300010: sm_ANI_Launch_1_5
-    21300012: sm_ANI_Launch_1_6
-    21300014: sm_ANI_Launch_1_7
-    21300016: sm_ANI_Launch_1_8
-    21300018: sm_ANI_Launch_1_9
-    21300020: sm_ANI_Launch_1_10
-    21300022: sm_ANI_Launch_1_11
-    21300024: sm_ANI_Launch_1_12
-    21300026: sm_ANI_Launch_1_13
-    21300028: sm_ANI_Launch_1_14
-    21300030: sm_ANI_Launch_1_15
-    21300032: sm_ANI_Launch_1_16
+    21300000: sm_ANI_Mine_Start_2_0
+    21300002: sm_ANI_Mine_Start_2_1
+    21300004: sm_ANI_Mine_Start_2_2
+    21300006: sm_ANI_Mine_Start_2_3
+    21300008: sm_ANI_Mine_Start_2_4
+    21300010: sm_ANI_Mine_Start_2_5
+    21300012: sm_ANI_Mine_Start_2_6
+    21300014: sm_ANI_Mine_Start_2_7
+    21300016: sm_ANI_Mine_Start_2_8
+    21300018: sm_ANI_Mine_Start_2_9
+    21300020: sm_ANI_Mine_Start_2_10
+    21300022: sm_ANI_Mine_Start_2_11
+    21300024: sm_ANI_Mine_Start_2_12
+    21300026: sm_ANI_Mine_Start_2_13
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -134,341 +131,281 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_0
+      name: sm_ANI_Mine_Start_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13406c96c4c00334a897f85f3e3380f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dd61e667673da44a04cfce6e28105a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47bd0c767add3e4eb3b4277ec7fc3b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c94df7193fd364790c0bf8f468b30d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010f1b7831e8c59409944c8cb623c101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33e8dd539fd0044fbc0d42654982d15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3015d6beb225b4a807a6c90977f9b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dcd949dbc5ff904894d34b8cbe6aa2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sm_ANI_Mine_Start_2_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1231d1d8ec6531a479ffb9484e23e5b5
+      spriteID: 72f7df4b1332640478f56f06ca51da39
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_1
+      name: sm_ANI_Mine_Start_2_9
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18518af7b534c484c89137f85138466c
+      spriteID: b28f82829e5ad354c8dabebaa5d1559a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_2
+      name: sm_ANI_Mine_Start_2_10
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5b4cf9d0158d824fb1800b7d84fecf0
+      spriteID: bacc75dbdd583da4fbe373994ab97c2c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_3
+      name: sm_ANI_Mine_Start_2_11
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 288f4f798791eba4985ebae39e66a517
+      spriteID: 688e74e0e23f9924280cef64d0ee1920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_4
+      name: sm_ANI_Mine_Start_2_12
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d931cc7cbe0a00144a1d65ecaee2ba18
+      spriteID: 609dbe0fc110a2d4480a0a42dfb130b6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sm_ANI_Launch_1_5
+      name: sm_ANI_Mine_Start_2_13
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fdfb8ab2c8035549bf2e6d9f969ec1a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_6
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5dc6023dbce0cf44955661af77b0776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 141831b5f20ed574193860773412980e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_8
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdad8c9a9805c2c41b4c67bd02ff2013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_9
-      rect:
-        serializedVersion: 2
-        x: 2304
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c093ad35723b5f429998b2764e9e4d8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_10
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2220dd5c0a2317d4bbc6dc7b376f2e73
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_11
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e61e401ba434e714cabe89a89cca8886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_12
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec324da5849c8374eb34557119ccca81
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_13
-      rect:
-        serializedVersion: 2
-        x: 3328
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96d3f7d53aa60be4596787b36f2b64f5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_14
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d64fb558388c534428afd7701c9ccabe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_15
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a28a26dc1ab649343a45d5d58b9b0ffe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sm_ANI_Launch_1_16
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cb3c495f6a939745bed0a404d97d958
+      spriteID: d4b7ce07e7d47a5429355e01636a7951
       vertices: []
       indices: 
       edges: []
@@ -476,7 +413,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 84ad84e64feb5dd45a2fd635c4955682
+    spriteID: 7f57e17e49a50734b810d1185cbb1c1c
     vertices: []
     indices: 
     edges: []

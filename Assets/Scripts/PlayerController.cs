@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IResetable
 	private int Mine = Animator.StringToHash("Mine");
 	private int Land = Animator.StringToHash("Land");
 	private int Launch = Animator.StringToHash("Launch");
+	private int Soldier = Animator.StringToHash("Soldier");
 	
 	public Shield Shield;
 	public shipManeuverController Ship;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour, IResetable
 		{ TriggerCollisionType.ResourcePlanet, ControlMode.ResourceGathering }
 	};
 
+	private int _requiredScoreToWin;
+
 	private void Start()
 	{
 		_controlsMapping[ControlMode.ResourceGathering] = HandleResourceGathering;
@@ -39,11 +42,20 @@ public class PlayerController : MonoBehaviour, IResetable
 
 		Game.Instance.GameSignals.OnTriggerCollisionEnter += OnTriggerCollisionEnter;
 		Game.Instance.GameSignals.OnTriggerCollisionExit += OnTriggerCollisionExit;
+		Game.Instance.GameSignals.OnWin += OnWin;
 
 		Game.Instance.GameModel.OnControlModeChanged += OnControlModeChanged;
 
+		var segmentScores = Game.Instance.GameSettings.segmentScores;
+		_requiredScoreToWin = segmentScores[segmentScores.Length - 1];
+		
 		var gameSettings = Game.Instance.GameSettings;
 		collectFrequency = gameSettings.totalCollectDuration / gameSettings.resourceCapacity;
+	}
+
+	private void OnWin()
+	{
+		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
 	}
 
 	private void OnControlModeChanged(ControlMode controlmode)
@@ -64,7 +76,12 @@ public class PlayerController : MonoBehaviour, IResetable
         if (controlmode == ControlMode.ShieldMovement)
         {
             PlayerAudioSource.PlayOneShot(LandAudioClip);
-	        MammothViewController.DockToHomebase(Shield.ShieldObject.transform.rotation.eulerAngles);
+	        
+	        if (Game.Instance.GameModel.GetScore() + Game.Instance.GameModel.GetResources() <
+	            _requiredScoreToWin)
+	        {
+				MammothViewController.DockToHomebase(Shield.ShieldObject.transform.rotation.eulerAngles);
+	        }
             Game.Instance.GameModel.DeliverResources();
 		}
 

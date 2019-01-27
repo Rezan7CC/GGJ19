@@ -6,7 +6,7 @@ public class Segment : MonoBehaviour
     [SerializeField]
     private GameObject segment;
 
-    private bool _canTakeDamage = false;
+    private bool _isInvincible = false;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class Segment : MonoBehaviour
 
     private void OnWin()
     {
-        _canTakeDamage = true;
+        _isInvincible = true;
     }
 
     public void HideSegment()
@@ -42,7 +42,7 @@ public class Segment : MonoBehaviour
     
     private void OnAstroidHit(GameObject hitSegment)
     {
-        if (hitSegment == segment.gameObject && !_canTakeDamage)
+        if (hitSegment == segment.gameObject && !_isInvincible)
         {
             Game.Instance.GameModel.ReduceHealth(Game.Instance.GameSettings.astroidDamage);
         }

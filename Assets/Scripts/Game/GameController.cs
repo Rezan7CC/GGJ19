@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour, IResetable
 
     private void OnWin()
     {
-        RestartGame();
+        
     }
 
     private void OnHealthChanged(int health)
