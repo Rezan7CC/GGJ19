@@ -1,25 +1,26 @@
 fileFormatVersion: 2
-guid: 10d78234ccd1223448e52eb9d7904b4e
+guid: 4a1d863f9b1c7a54ba7f1155d54f9c9c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Shield
-    100004: Shield_Col
+    100002: Planet_Debris_01
+    100004: Planet_Debris_02
+    100006: Planet_Debris_03
     400000: //RootNode
-    400002: Shield
-    400004: Shield_Col
+    400002: Planet_Debris_01
+    400004: Planet_Debris_02
+    400006: Planet_Debris_03
     2100000: Tex
-    2100002: lambert1
-    2300000: //RootNode
-    2300002: Shield
-    2300004: Shield_Col
-    3300000: //RootNode
-    3300002: Shield
-    3300004: Shield_Col
-    4300000: pCylinder4
-    4300002: Shield
-    4300004: Shield_Col
+    2300000: Planet_Debris_01
+    2300002: Planet_Debris_02
+    2300004: Planet_Debris_03
+    3300000: Planet_Debris_01
+    3300002: Planet_Debris_02
+    3300004: Planet_Debris_03
+    4300000: Planet_Debris_02
+    4300002: Planet_Debris_01
+    4300004: Planet_Debris_03
   externalObjects: {}
   materials:
     importMaterials: 0
