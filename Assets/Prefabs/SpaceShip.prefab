@@ -80,8 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a5e8685acf043d8b6b7e8461a32afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectPosition: {x: 6.504, y: -1.78, z: 0}
-  CollectRotation: {x: 0, y: 0, z: -58.788}
+  collectTransform: {fileID: 0}
+  startTransform: {fileID: 0}
+  dockPlanetEffectPrefab: {fileID: 2728084352117420793, guid: faa89bd01f9cfb24785781cb8aed5dac,
+    type: 3}
 --- !u!82 &1994517995213849506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -268,7 +270,7 @@ SpriteRenderer:
   m_SortingLayerID: 466702899
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6c992f10f8b4492e86dc3f00d6acbbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f031a7026629094a95a1e89731c9b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

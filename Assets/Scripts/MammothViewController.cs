@@ -6,6 +6,7 @@ public class MammothViewController : MonoBehaviour, IResetable
 {
     public Transform collectTransform;
     public Transform startTransform;
+    public GameObject dockPlanetEffectPrefab;
 
     private void Start()
     {
@@ -25,6 +26,8 @@ public class MammothViewController : MonoBehaviour, IResetable
             .Insert(0, transform.DOMove(collectTransform.position, 0.2f))
             .Insert(0, transform.DORotate(collectTransform.rotation.eulerAngles, 0.2f));
 
+        GameObject dockEffect = Instantiate<GameObject>(dockPlanetEffectPrefab);
+        dockEffect.transform.position = collectTransform.position + new Vector3(0.22f, -0.42f, 0);
     }
 
     public void Reset()

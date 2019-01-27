@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2899840751250364261}
   - component: {fileID: 6033092540242621021}
   - component: {fileID: 664867551558378532}
+  - component: {fileID: 1130025975515415226}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Untagged
@@ -4675,3 +4676,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1130025975515415226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728084352117420793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365df03850199744bd91b55b648fea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 3
