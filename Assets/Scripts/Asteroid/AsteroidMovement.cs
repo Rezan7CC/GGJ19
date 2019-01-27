@@ -10,6 +10,10 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     public float MinRotationSpeed = 0.0f;
     public float MaxRotationSpeed = 5.0f;
     public float OffsetBufferPixel = 10.0f;
+    float Lifetime = 0.0f;
+    float TrailLength = 0.0f;
+
+    public TrailRenderer trail;
 
     public GameObject asteroidExplosion;
 
@@ -45,6 +49,7 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     {
         GetComponent<Rigidbody>().AddTorque(Random.Range(MinRotationSpeed, MaxRotationSpeed),
            Random.Range(MinRotationSpeed, MaxRotationSpeed), Random.Range(MinRotationSpeed, MaxRotationSpeed), ForceMode.VelocityChange);
+        trail.widthMultiplier = transform.localScale.x;
     }
 
     public void Init()
@@ -57,9 +62,12 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Update is called once per frame
     void Update()
     {
-         transform.position += Direction * Speed * Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
+        transform.position += Direction * Speed * Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
+        Lifetime += Time.deltaTime;
+        TrailLength = Mathf.Sin(Lifetime) * 0.5f;
+        trail.time = TrailLength + trail.widthMultiplier * 1.7f;
 
-        if(!wasInView && transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
+        if (!wasInView && transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
             && transform.position.x > asteroidDespawnerTransform.position.x - asteroidDespawnerBox.size.x * 0.5
             && transform.position.y < asteroidDespawnerTransform.position.y + asteroidDespawnerBox.size.y * 0.5
             && transform.position.y > asteroidDespawnerTransform.position.y - asteroidDespawnerBox.size.y * 0.5)
