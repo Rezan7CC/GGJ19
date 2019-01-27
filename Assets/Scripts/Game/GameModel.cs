@@ -36,15 +36,16 @@ public class GameModel
 	}
 	
 	private ControlMode _controlMode;
-	public delegate void ControlsModeChange(ControlMode controlMode);
+	public delegate void ControlsModeChange(ControlMode controlMode, ControlMode previousMode);
 	public ControlsModeChange OnControlModeChanged;
 
 	public void SetControlMode(ControlMode controlMode)
 	{
+		var previousMode = _controlMode;
 		_controlMode = controlMode;
 		if (OnControlModeChanged != null)
 		{
-			OnControlModeChanged(_controlMode);
+			OnControlModeChanged(_controlMode, previousMode);
 		}
 	}
 

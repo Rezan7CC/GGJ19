@@ -14,7 +14,7 @@ public class CameraBehaviour : MonoBehaviour
         Game.Instance.GameModel.OnControlModeChanged += OnControlModeChange;
     }
 
-    private void OnControlModeChange(ControlMode controlmode)
+    private void OnControlModeChange(ControlMode controlmode, ControlMode previousMode)
     {
         if (controlmode == ControlMode.ShieldMovement)
         {
