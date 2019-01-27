@@ -56,7 +56,7 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     // Update is called once per frame
     void Update()
     {
-         transform.position += Direction * Speed * Time.deltaTime;
+         transform.position += Direction * Speed * Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
 
         if(!wasInView && transform.position.x < asteroidDespawnerTransform.position.x + asteroidDespawnerBox.size.x * 0.5
             && transform.position.x > asteroidDespawnerTransform.position.x - asteroidDespawnerBox.size.x * 0.5

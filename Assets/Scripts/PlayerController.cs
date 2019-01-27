@@ -143,14 +143,14 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void HandleResourceGathering()
 	{
-		if (Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKeyDown(KeyCode.F) && Game.Instance.GameModel.InGameTimeScale > 0)
 		{
 			MammothAnimator.SetBool(Mine, true);
 		}
 		
 		if (Input.GetKey(KeyCode.F))
 		{
-			currentCollectFrequency -= Time.deltaTime;
+			currentCollectFrequency -= Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
 			if (currentCollectFrequency <= 0)
 			{
 				currentCollectFrequency = collectFrequency;

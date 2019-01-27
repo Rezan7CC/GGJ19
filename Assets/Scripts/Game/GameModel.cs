@@ -5,7 +5,13 @@ public class GameModel
 	private int _score;
 	public delegate void ScoreChange(int score);
 	public ScoreChange OnScoreChange;
+	public float InGameTimeScale { get; set; }
 
+	public GameModel()
+	{
+		InGameTimeScale = 1;
+	}
+	
 	public void SetScore(int score)
 	{
 		this._score = score;

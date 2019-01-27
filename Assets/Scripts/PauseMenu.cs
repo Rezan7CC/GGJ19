@@ -15,19 +15,26 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-//            Time.timeScale = 0;
-            PM.SetActive(true);
+            if (!PM.activeSelf)
+            {
+                Game.Instance.GameModel.InGameTimeScale = 0;
+                PM.SetActive(true);
+            }
+            else
+            {
+                Unpause();
+            }
         }
     }
 
     public void Unpause()
     {
-        Time.timeScale = 1; 
+        Game.Instance.GameModel.InGameTimeScale = 1;
+        PM.SetActive(false);
     }
 
     public void ToMainMenu()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

@@ -29,8 +29,13 @@ public class shipManeuverController : MonoBehaviour, IResetable
         }
 
         float xAxis = Input.GetAxis("Horizontal") * rotationSpeed;
-        ThrustForward(yAxis);
+        ThrustForward(yAxis * Game.Instance.GameModel.InGameTimeScale);
         Rotate(transform, xAxis);
+
+        if (Game.Instance.GameModel.InGameTimeScale <= 0)
+        {
+            StopMovement();
+        }
     }
 
     public void StopMovement()
@@ -55,7 +60,7 @@ public class shipManeuverController : MonoBehaviour, IResetable
 
     private void Rotate(Transform t, float amount)
     {
-        t.Rotate(0, 0, -amount);
+        t.Rotate(0, 0, -amount * Game.Instance.GameModel.InGameTimeScale);
     }
     #endregion
 

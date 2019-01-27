@@ -64,7 +64,7 @@ public class AsteroidSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        spawnTimer -= Time.deltaTime * Game.Instance.GameModel.InGameTimeScale;
         if (spawnTimer <= 0.0f)
         {
             spawnTimer = Random.Range(asteroidStage[currentStage].MinFrequency, asteroidStage[currentStage].MaxFrequency);
