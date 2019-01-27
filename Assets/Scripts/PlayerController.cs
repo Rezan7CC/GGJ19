@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IResetable
 	private int Mine = Animator.StringToHash("Mine");
 	private int Land = Animator.StringToHash("Land");
 	private int Launch = Animator.StringToHash("Launch");
+	private int Soldier = Animator.StringToHash("Soldier");
 	
 	public Shield Shield;
 	public shipManeuverController Ship;

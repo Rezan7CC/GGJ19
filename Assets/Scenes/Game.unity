@@ -2498,11 +2498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
-    - target: {fileID: 9100082158602002521, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: MammothResourceCollectTransform
-      value: 
-      objectReference: {fileID: 6419139994276497407}
     - target: {fileID: 1939746874561516207, guid: 8631aaaa6554b4e42a617e75899050fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2558,16 +2553,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -58.788002
       objectReference: {fileID: 0}
-    - target: {fileID: 1939746873445633188, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1939746873445633188, guid: 8631aaaa6554b4e42a617e75899050fd,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceShipMesh
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8631aaaa6554b4e42a617e75899050fd, type: 3}
 --- !u!54 &1939746874764620180 stripped
@@ -2582,25 +2567,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1939746874764620179}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1939746874764620182
+--- !u!95 &1939746874764620182 stripped
 Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1939746874764620182, guid: 8631aaaa6554b4e42a617e75899050fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1939746874764620179}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939746874764620181}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba50defca2ded479c8237875d1d854f8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4650853396073789901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2979,12 +2951,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1588e4382234f7d92703dbf19e70a2, type: 3}
---- !u!4 &6419139994276497407 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8251716108620271825, guid: 3d1588e4382234f7d92703dbf19e70a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 6419139994276497406}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9217300366439828619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9217300366439828619, guid: a7b20d711b2274881b90c7fbf0803177,
