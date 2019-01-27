@@ -4686,6 +4686,7 @@ GameObject:
   - component: {fileID: 5468466681254105964}
   - component: {fileID: 5868423404397420816}
   - component: {fileID: 3363778881967129368}
+  - component: {fileID: 4426242144667901931}
   m_Layer: 0
   m_Name: Asteroid_hit
   m_TagString: Untagged
@@ -9324,3 +9325,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4426242144667901931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450763424988514561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365df03850199744bd91b55b648fea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

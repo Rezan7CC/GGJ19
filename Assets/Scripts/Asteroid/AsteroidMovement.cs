@@ -99,19 +99,11 @@ public class AsteroidMovement : MonoBehaviour, IResetable
         {
             GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<ParticleSystem>().Play();
-            StartCoroutine(Die(explosion));
             DOTween.Sequence()
                 .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
                 .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
         }
         Destroy(gameObject);
-    }
-
-    IEnumerator Die(GameObject GO)
-    {
-        //play your sound
-        yield return new WaitForSeconds(3); //waits 3 seconds
-        Destroy(GO); //this will work after 3 seconds.
     }
 
     void OnTriggerEnter(Collider other)
