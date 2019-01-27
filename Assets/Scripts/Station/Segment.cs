@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Segment : MonoBehaviour
     {
         if (IsShown())
         {
-            segment.SetActive(false);
+            segment.transform.localScale = Vector3.zero;
         }
     }
     
@@ -30,13 +31,13 @@ public class Segment : MonoBehaviour
     {
         if (IsShown() == false)
         {
-            segment.SetActive(true);
+            segment.transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
         }
     }
 
     private bool IsShown()
     {
-        return segment.activeSelf;
+        return segment.transform.localScale != Vector3.zero;
     }
     
     private void OnAstroidHit(GameObject hitSegment)
