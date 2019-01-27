@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 10d78234ccd1223448e52eb9d7904b4e
+guid: 5fad3d99a1b5e144fa1feba960b2b5ff
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Shield
-    100004: Shield_Col
-    400000: //RootNode
-    400002: Shield
-    400004: Shield_Col
+    100000: Mine_Entrance
+    100002: //RootNode
+    400000: Mine_Entrance
+    400002: //RootNode
     2100000: Tex
-    2100002: lambert1
-    2300000: //RootNode
-    2300002: Shield
-    2300004: Shield_Col
-    3300000: //RootNode
-    3300002: Shield
-    3300004: Shield_Col
-    4300000: pCylinder4
-    4300002: Shield
-    4300004: Shield_Col
+    2300000: Mine_Entrance
+    3300000: Mine_Entrance
+    4300000: Mine_Entrance
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
