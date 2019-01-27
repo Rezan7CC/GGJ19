@@ -11,6 +11,8 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     public float MaxRotationSpeed = 5.0f;
     public float OffsetBufferPixel = 10.0f;
 
+    public GameObject asteroidExplosion;
+
     [HideInInspector]
     public float Speed = 0.0f;
 
@@ -93,13 +95,15 @@ public class AsteroidMovement : MonoBehaviour, IResetable
     void DestroyAsteroid(float positionShake = 0, float rotationShake = 0)
     {
         --AsteroidSpawnerInternal.currentLifeCount;
-        Destroy(gameObject);
         if ((positionShake > 0 || rotationShake > 0) && Camera.main != null)
         {
+            GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
+            explosion.GetComponent<ParticleSystem>().Play();
             DOTween.Sequence()
                 .Insert(0, Camera.main.transform.DOShakePosition(0.33f, positionShake))
                 .Insert(0, Camera.main.transform.DOShakeRotation(0.33f, rotationShake));
         }
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)

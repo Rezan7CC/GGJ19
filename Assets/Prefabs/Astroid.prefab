@@ -162,7 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ebd83738217994ca540483f924acba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinRotationSpeed: 0
+  MaxRotationSpeed: 5
   OffsetBufferPixel: 10
+  asteroidExplosion: {fileID: 5450763424988514561, guid: 7fc88a454f967d249b82f43050514c05,
+    type: 3}
   Speed: 0
   Direction: {x: 0, y: 0, z: 0}
   AsteroidDespawnerInternal: {fileID: 0}
