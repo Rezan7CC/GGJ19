@@ -74,6 +74,11 @@ public class GameModel
 			OnResourceAmountChange(_resourceAmount);
 		}
 	}
+	
+	public int GetResources()
+	{
+		return _resourceAmount;
+	}
 
 	public void DeliverResources()
 	{
