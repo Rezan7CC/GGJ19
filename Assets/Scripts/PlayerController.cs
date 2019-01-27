@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IResetable
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour, IResetable
 	private int Land = Animator.StringToHash("Land");
 	private int Launch = Animator.StringToHash("Launch");
 	private int Soldier = Animator.StringToHash("Soldier");
+	private int Win = Animator.StringToHash("Win");
+	private int Lose = Animator.StringToHash("Lose");
 	
 	public Shield Shield;
 	public shipManeuverController Ship;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour, IResetable
     private TriggerCollisionType _currentTriggerCollisionType;
 	private float collectFrequency;
 	private float currentCollectFrequency;
+	private bool isDead;
 
 	private readonly Dictionary<ControlMode, Action> _controlsMapping = new Dictionary<ControlMode, Action>();
 	private readonly Dictionary<TriggerCollisionType, ControlMode> _collisionTypeMapping = new Dictionary<TriggerCollisionType, ControlMode>()
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour, IResetable
 		Game.Instance.GameSignals.OnTriggerCollisionEnter += OnTriggerCollisionEnter;
 		Game.Instance.GameSignals.OnTriggerCollisionExit += OnTriggerCollisionExit;
 		Game.Instance.GameSignals.OnWin += OnWin;
+		Game.Instance.GameSignals.OnGameOver += OnGameOver;
 
 		Game.Instance.GameModel.OnControlModeChanged += OnControlModeChanged;
 
@@ -53,9 +58,23 @@ public class PlayerController : MonoBehaviour, IResetable
 		collectFrequency = gameSettings.totalCollectDuration / gameSettings.resourceCapacity;
 	}
 
+	private void OnGameOver()
+	{
+		isDead = true;
+		MammothAnimator.SetTrigger(Lose);
+		
+		DOTween.Sequence()
+			.Insert(0, MammothViewController.gameObject.transform.DOScale(5, 1f).SetEase(Ease.OutBack))
+			.Insert(0, MammothViewController.gameObject.transform.DOMove(new Vector3(-1, 0, -9), 1f))
+			.Insert(0, MammothViewController.gameObject.transform.DORotate(new Vector3(0, 0, 45f), 1f))
+			.Insert(2f, MammothViewController.gameObject.transform.DOMoveY(-7, 3).SetEase(Ease.InOutBack));
+	}
+
 	private void OnWin()
 	{
 		Game.Instance.GameModel.SetControlMode(ControlMode.ShipMovement);
+		MammothAnimator.SetTrigger(Win);
+		MammothViewController.gameObject.transform.DOScale(3f, 1.5f).SetLoops(2, LoopType.Yoyo);
 	}
 
 	private void OnControlModeChanged(ControlMode controlmode, ControlMode previousMode)
@@ -157,16 +176,31 @@ public class PlayerController : MonoBehaviour, IResetable
 
 	private void HandleShieldMovement()
 	{
+		if (isDead)
+		{
+			return;
+		}
+		
 		Shield.HandleMovement();
 	}
 
 	private void HandleShipMovement()
 	{
+		if (isDead)
+		{
+			return;
+		}
+		
 		Ship.HandleMovement();
 	}
 
 	private void HandleResourceGathering()
 	{
+		if (isDead)
+		{
+			return;
+		}
+		
 		if (Input.GetKeyDown(KeyCode.F) && Game.Instance.GameModel.InGameTimeScale > 0)
 		{
 			MammothAnimator.SetBool(Mine, true);
