@@ -90,12 +90,28 @@ MonoBehaviour:
     BottomRightQuadrant: 0
     InnerTargetRadius: 3
     OuterTargetRadius: 7
-    InnerTargetChance: 0.5
+    InnerTargetChance: 0.35
     DeadZone: 40
     UrgentAlarm: 0
+  - MinFrequency: 3
+    MaxFrequency: 6
+    MaximumLifeCount: 4
+    MinSpeed: 0.8
+    MaxSpeed: 1.7
+    SpawnDistance: 15
+    DistanceSpeedFactor: 0.5
+    TopLeftQuadrant: 1
+    TopRightQuadrant: 1
+    BottomLeftQuadrant: 1
+    BottomRightQuadrant: 0
+    InnerTargetRadius: 3
+    OuterTargetRadius: 7
+    InnerTargetChance: 0.4
+    DeadZone: 30
+    UrgentAlarm: 0
   - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
+    MaxFrequency: 7
+    MaximumLifeCount: 4
     MinSpeed: 1
     MaxSpeed: 2
     SpawnDistance: 15
@@ -106,27 +122,11 @@ MonoBehaviour:
     BottomRightQuadrant: 0
     InnerTargetRadius: 3
     OuterTargetRadius: 7
-    InnerTargetChance: 0.5
+    InnerTargetChance: 0.45
     DeadZone: 25
     UrgentAlarm: 0
-  - MinFrequency: 2
-    MaxFrequency: 5
-    MaximumLifeCount: 5
-    MinSpeed: 1
-    MaxSpeed: 2
-    SpawnDistance: 15
-    DistanceSpeedFactor: 0.5
-    TopLeftQuadrant: 1
-    TopRightQuadrant: 1
-    BottomLeftQuadrant: 1
-    BottomRightQuadrant: 0
-    InnerTargetRadius: 3
-    OuterTargetRadius: 7
-    InnerTargetChance: 0.5
-    DeadZone: 25
-    UrgentAlarm: 0
-  - MinFrequency: 2
-    MaxFrequency: 5
+  - MinFrequency: 1.8
+    MaxFrequency: 6
     MaximumLifeCount: 5
     MinSpeed: 1
     MaxSpeed: 2
@@ -170,6 +170,7 @@ MonoBehaviour:
   UrgentAlarmClip: {fileID: 8300000, guid: 5d44baf7397864e4497c02c10567e0dd, type: 3}
   currentLifeCount: 0
   currentStage: 0
+  isSpawning: 1
 --- !u!82 &3502867290825634146
 AudioSource:
   m_ObjectHideFlags: 0
