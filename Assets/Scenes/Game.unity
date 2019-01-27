@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.450822, g: 0.5007405, b: 0.5746942, a: 1}
+  m_IndirectSpecularColor: {r: 0.450822, g: 0.5007406, b: 0.57469434, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZoomSize: 4.5
-  XLandingOffset: 0.2
+  XLandingOffset: 1.5
 --- !u!1 &535163394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2241,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 977626566}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3082,12 +3082,12 @@ PrefabInstance:
     - target: {fileID: 4650853396511010544, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5754767184272282838, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 478270676219394130, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
         type: 3}
@@ -3117,7 +3117,16 @@ PrefabInstance:
     - target: {fileID: 9145220935431613950, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846093566196791262, guid: 6c24b5afc5ce8403e9f810368b33b5ee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727874325, guid: 6c24b5afc5ce8403e9f810368b33b5ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c24b5afc5ce8403e9f810368b33b5ee, type: 3}

@@ -197,7 +197,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  delay: 2.8
+  delay: 2.7
   distance: -3000
   animationDuration: 3
   startPositionX: 1400
